@@ -1,0 +1,98 @@
+package com.bancusoft.list.Views;
+import static com.bancusoft.list.R.id.TextView_1;
+import static com.bancusoft.list.R.string.date_ro1;
+
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import android.webkit.WebView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.R;
+import com.bancusoft.list.Retrofit.Scientistsvw_ro;
+
+public class help_vw_ro  extends BaseActivity{
+    private WebView webView;
+    private Scientistsvw_ro receivedScientist;
+
+    public help_vw_ro() {
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onCreate (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.helpvw_ro);
+
+        // Get the TextView
+        TextView textView = findViewById(TextView_1);
+
+
+        // Define the original string
+        String originalText = getString(date_ro1);
+
+
+        // Find the start and end indices of "data.gov.ro"
+        int startIndex = originalText.indexOf("data.gov.ro");
+        int endIndex = startIndex + "data.gov.ro".length();
+
+        // Create a SpannableString to make the link clickable
+        SpannableString spannableString = new SpannableString(originalText);
+
+
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                openUrl("https://data.gov.ro/");
+            }
+
+            private void openUrl(String url) {
+
+                Intent intent = new Intent(help_vw_ro.this, WebViewActivity_1.class);
+                intent.putExtra("url", url);
+                startActivity(intent);
+
+            }
+
+        };
+
+
+        // Set the ClickableSpan to the specified range
+        spannableString.setSpan(clickableSpan, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+
+        // Set the text in the TextView
+        textView.setText(spannableString);
+
+        // Make the link clickable
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+
+        findViewById(R.id.mBackArrowh_vw_ro).setOnClickListener(v ->  Utils.openActivity(help_vw_ro.this,DashboardActivity.class));
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Utils.openActivity(help_vw_ro.this, DashboardActivity.class);
+
+    }
+
+
+    public void setReceivedScientist(Scientistsvw_ro receivedScientist) {
+        this.receivedScientist = receivedScientist;
+    }
+}
