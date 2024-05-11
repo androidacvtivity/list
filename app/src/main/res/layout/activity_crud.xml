@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/m_splash_screen_bg"
+     tools:context=".Views.CRUDActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="16dp">
+
+
+        <ProgressBar
+            android:id="@+id/mProgressBarSave"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+
+        <TextView
+            android:id="@+id/headerTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/scientists_editing_page"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/niceGreenish"
+            tools:ignore="MissingPrefix" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/card_margin"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/text_padding"
+                    android:text="@string/instruc_iune"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/skyblue" />
+
+                <TextView
+                    android:id="@+id/instructionsTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/text_padding"
+                    android:text="@string/adauga_i_angajatul_n_edittext_apoi_face_i_clic_pe_butonul_de_salvare_din_bara_de_instrumente_unele_c_mpuri_precum_numele_i_loca_i_trebuie_s_fie_completate" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/card_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/text_padding"
+                    android:text="@string/informa_ie_despre_angajat"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/niceGreenish"
+                    tools:ignore="MissingPrefix" />
+
+                <EditText
+                    android:id="@+id/nameTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/nume_prenume"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/descriptionTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/loca_ia"
+                    android:minLines="3"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+
+                <EditText
+                    android:id="@+id/galaxyTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/func_ia"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+
+                <EditText
+                    android:id="@+id/serviciuTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/serviciu"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                android:id="@+id/sectiaTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/sec_ia"
+                tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/departTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="Dirtecția"
+                    tools:ignore="HardcodedText,MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/starTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/dirtec_ia_general"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+
+
+                <EditText
+                    android:id="@+id/phoneTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/telefon"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                android:id="@+id/phoneinternalTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/telefon_intern"
+                tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+
+
+                <EditText
+                    android:id="@+id/formnameTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/cercet_ri_statistice"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/emailTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/e_mail"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/personalinfoTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/informa_ii_personale"
+                    tools:ignore="MissingPrefix,TextFields"
+                    android:autofillHints="" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/card_margin">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="@dimen/text_padding"-->
+<!--                    android:text="Residence Details"-->
+<!--                    android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                    android:textColor="@color/niceGreenish" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/galaxyTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:hint="Galaxy"-->
+<!--                    tools:ignore="MissingPrefix" />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/starTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:hint="Star"-->
+<!--                    tools:ignore="MissingPrefix" />-->
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/card_margin">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="@dimen/text_padding"-->
+<!--                    android:text="TimeLine Details"-->
+<!--                    android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+<!--                    android:textColor="@color/niceGreenish" />-->
+
+<!--                <android.helper.DateTimePickerEditText-->
+<!--                    android:id="@+id/dobTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="@dimen/text_padding"-->
+<!--                    android:hint="Date of Birth"-->
+<!--                    tools:ignore="MissingPrefix" />-->
+
+<!--                <android.helper.DateTimePickerEditText-->
+<!--                    android:id="@+id/dodTxt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="@dimen/text_padding"-->
+<!--                    android:hint="Date of Death"-->
+<!--                    tools:ignore="MissingPrefix" />-->
+<!--            </LinearLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+    </LinearLayout>
+
+</ScrollView>
