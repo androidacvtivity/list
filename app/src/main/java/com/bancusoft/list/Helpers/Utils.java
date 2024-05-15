@@ -56,7 +56,7 @@ public class Utils {
     //supply your ip address. Type ipconfig while connected to internet to get your
     //ip address in cmd. Watch video for more details.
      //
-  //
+    public   static  final  String  app_google = "https://play.google.com/store/apps/details?id=com.bancusoft.list&gl=MD";
    public   static  final  String  youtube_level_stat = "https://www.youtube.com/";
 
 
