@@ -1,6 +1,8 @@
 package com.bancusoft.list.Views;
 
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -171,8 +173,8 @@ public class DetailActivitycfp extends AppCompatActivity {
 
 
             String contentShare = "Forma organizatorico-juridică: " + s_DENUMIRE_TV_cfp + " - Număr (care au codul IDNO) :  "+ s_VALUE_TV_cfp + "  Actualizarea  " + s_act_TV_cfp
-                    + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.accountant&gl=MD"
-                    ;
+                    + " -- The application -Level Stat - can be downloaded from here "
+                    +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");

@@ -1,5 +1,7 @@
 package com.bancusoft.list.Views.med;
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -249,7 +251,8 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
                     + "-- Informatia este preluata din sursa deschisa - " +
 
                     "Ordinul MSPS RM nr. 271 din 04.07.2006 „Cu privire la aprobarea Clasificatorului medicamentelor înregistrate în Republica Moldova” " +
-                    "Clasificatorul medicamentelor (Format EXCEL)  Actualizat la data de 10.07.2019" + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.accountant&gl=MD";
+                    "Clasificatorul medicamentelor (Format EXCEL)  Actualizat la data de 10.07.2019" + " -- The application -Level Stat - can be downloaded from here "
+                    +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");

@@ -1,5 +1,7 @@
 package com.bancusoft.list.Views;
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -180,8 +182,8 @@ public class DetailActivitycaem extends AppCompatActivity {
 
 
             String contentShare = " Genul de activitate: " + s_DENUMIRE_TV_caem + " - Număr (care au codul IDNO) :  "+ s_VALUE_TV_caem + " Actualizarea " + s_act_TV_caem
-                    + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.accountant&gl=MD"
-                    ;
+                    + " -- The application -Level Stat - can be downloaded from here "
+                    +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");

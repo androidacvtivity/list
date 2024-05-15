@@ -1,6 +1,8 @@
 package com.bancusoft.list.Views;
 
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -173,8 +175,9 @@ public class DetailActivityclservicii extends AppCompatActivity{
             String contentShare = " Codul servicii : " + s_CODUL_TV_CSPM + " - Denumirea codului, \n" +
                     "  :  " + s_DENUMIRE_TV_CSPM
 
-                    + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.accountant&gl=MD"
-                    ;
+                    + " -- The application -Level Stat - can be downloaded from here "
+                    +  app_google;
+
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");

@@ -1,6 +1,8 @@
 package com.bancusoft.list.Views;
 
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -185,8 +187,8 @@ public class DetailActivityclprodmold extends AppCompatActivity{
 
             String contentShare = " Codul Prodmold : " + s_CODUL_TV_CL_PRODMOLD + " - Denumirea , \n" +
                     "  :  " + s_DENUMIRE_TV_CL_PRODMOLD + " Unitatea de măsură : " + s_UM_TV_CL_PRODMOLD
-                    + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.accountant&gl=MD"
-                    ;
+                    + " -- The application -Level Stat - can be downloaded from here "
+                    +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
