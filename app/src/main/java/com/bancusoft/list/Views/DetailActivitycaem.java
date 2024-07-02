@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -155,19 +156,29 @@ public class DetailActivitycaem extends AppCompatActivity {
     /**
      * Let's finish the current activity when back button is pressed
      */
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, ScientistsActivitycucaem.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Intent intent;
+//        intent = new Intent(this, ScientistsActivitycucaem.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        finish();
+//        startActivity(intent);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_caem);
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent intent = new Intent(DetailActivitycaem.this, ScientistsActivitycucaem.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        });
 
         DENUMIRE_TV_caem= findViewById(R.id.DENUMIRE_TV_caem);
         VALUE_TV_caem= findViewById(R.id.VALUE_TV_caem);

@@ -1,4 +1,3 @@
-
 package com.bancusoft.list.Views;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
@@ -6,12 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,40 +16,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.widget.TextView;
-
 import com.bancusoft.list.R;
 import com.bancusoft.list.Views.structbns.Full_description;
-
-import android.content.Intent;
-import android.net.Uri;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import android.text.SpannableString;
-import android.text.Spanned;
-
-
 public class AboutUsActivity extends AppCompatActivity {
-
-
-
-
     public void openMapsLink(View view) {
         String url = "https://www.google.com/maps/place/Chi%C8%99in%C4%83u,+Moldova/@46.9999566,28.7757764,12z/data=!3m1!4b1!4m6!3m5!1s0x40c97c3628b769a1:0x37d1d6305749dd3c!8m2!3d47.0104529!4d28.8638102!16zL20vMGZuNzc?authuser=0";
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
     }
-
-    //----------------------------------------------------------------------------------------------
-//    public void onMImageViewClick(View view) {
-////        Intent intent = new Intent(Intent.ACTION_VIEW);
-////        intent.setData(Uri.parse("https://www.linkedin.com/in/bancusoft/"));
-////        startActivity(intent);
-//    }
-//
-//
 
     public void onMImageViewClick(View view) {
         // LinkedIn profile URL
@@ -80,28 +50,16 @@ public class AboutUsActivity extends AppCompatActivity {
         webViewIntent.putExtra("url", url);
         startActivity(webViewIntent);
     }
-
-
-//-----------------------------------------------------------------------------
-
-//I have 2 number - phone_number and phone_number_ro  it is correct  ?
     private static final int CALL_PERMISSION_REQUEST_CODE = 123;
 
     public void onCallImageViewClick(View view) {
         String phoneNumber = getString(R.string.phone_number);
         handleCall(phoneNumber, view);
     }
-
-
     public void onCallImageViewClick_ro(View view) {
         String phoneNumber = getString(R.string.phone_number_ro);
         handleCall(phoneNumber, view);
     }
-
-
-
-
-
 
     public void handleCall(String phoneNumber, View view) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
@@ -125,12 +83,6 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
-
-
-
 
     private void showSupportEmailOption() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

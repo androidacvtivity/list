@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import android.widget.LinearLayout;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bancusoft.list.Helpers.Utils;
@@ -163,11 +164,12 @@ help_cl_med.setOnClickListener(v -> Utils.openActivity(DashboardActivity.this, h
     /**
      * When the back button is pressed finish this activity
      */
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        this.finish();
-    }
+//    //Is deprecated
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        this.finish();
+//    }
 
     /**
      * Let's override the onCreate() and call our initializeWidgets()
@@ -178,6 +180,18 @@ help_cl_med.setOnClickListener(v -> Utils.openActivity(DashboardActivity.this, h
         setContentView(R.layout.activity_dashboard);
 
         this.initializeWidgets();
+
+
+        // Add a callback to handle the back pressed event
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Your custom back press logic
+                finish();
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }
 //end
