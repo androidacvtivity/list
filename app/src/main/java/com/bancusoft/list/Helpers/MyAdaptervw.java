@@ -119,23 +119,37 @@ public class MyAdaptervw extends RecyclerView.Adapter<MyAdaptervw.ViewHolder> {
         final Scientistvw s = scientists.get(position);
 
         //bind data to widgets
-        holder.DEN_COM_VW_Txt.setText(s.getDEN_COM_VW().trim());
-        holder.IDNO_VW_Txt.setText(s.getIDNO_VW().trim());
-        holder.LIST_COND_VW_Txt.setText(s.getLIST_COND_VW().trim());
-        holder.ADRESA_VW_Txt.setText(s.getADRESA_VW().trim());
-        holder.LISTA_FOND_VW_Txt.setText(s.getLISTA_FOND_VW().trim());
-        holder.GEN_ACT_NE_LIC_VW_Txt.setText(s.getGEN_ACT_NE_LIC_VW().trim());
-        holder.GEN_ACT_LIC_VW_Txt.setText(s.getGEN_ACT_LIC_VW().trim());
-        holder.DATA_REG_VW_Txt.setText(s.getDATA_REG_VWW().trim());
-        holder.STATUTUL_VW_Txt.setText(s.getSTATUTUL_VW().trim());
-        holder.act_TXT.setText(s.getAct().trim());
+//        holder.DEN_COM_VW_Txt.setText(s.getDEN_COM_VW().trim());
+//        holder.IDNO_VW_Txt.setText(s.getIDNO_VW().trim());
+//        holder.LIST_COND_VW_Txt.setText(s.getLIST_COND_VW().trim());
+//        holder.ADRESA_VW_Txt.setText(s.getADRESA_VW().trim());
+//        holder.LISTA_FOND_VW_Txt.setText(s.getLISTA_FOND_VW().trim());
+//        holder.GEN_ACT_NE_LIC_VW_Txt.setText(s.getGEN_ACT_NE_LIC_VW().trim());
+//        holder.GEN_ACT_LIC_VW_Txt.setText(s.getGEN_ACT_LIC_VW().trim());
+//        holder.DATA_REG_VW_Txt.setText(s.getDATA_REG_VWW().trim());
+//        holder.STATUTUL_VW_Txt.setText(s.getSTATUTUL_VW().trim());
+//holder.act_TXT.setText(s.getAct().trim());
+
+        holder.DEN_COM_VW_Txt.setText(s.getDEN_COM_VW() != null ? s.getDEN_COM_VW().trim() : "N/A");
+        holder.IDNO_VW_Txt.setText(s.getIDNO_VW() != null ? s.getIDNO_VW().trim() : "N/A");
+        holder.LIST_COND_VW_Txt.setText(s.getLIST_COND_VW() != null ? s.getLIST_COND_VW().trim() : "N/A");
+        holder.ADRESA_VW_Txt.setText(s.getADRESA_VW() != null ? s.getADRESA_VW().trim() : "N/A");
+        holder.LISTA_FOND_VW_Txt.setText(s.getLISTA_FOND_VW() != null ? s.getLISTA_FOND_VW().trim() : "N/A");
+        holder.GEN_ACT_NE_LIC_VW_Txt.setText(s.getGEN_ACT_NE_LIC_VW() != null ? s.getGEN_ACT_NE_LIC_VW().trim() : "N/A");
+        holder.GEN_ACT_LIC_VW_Txt.setText(s.getGEN_ACT_LIC_VW() != null ? s.getGEN_ACT_LIC_VW().trim() : "N/A");
+        holder.DATA_REG_VW_Txt.setText(s.getDATA_REG_VWW() != null ? s.getDATA_REG_VWW().trim() : "N/A");
+        holder.STATUTUL_VW_Txt.setText(s.getSTATUTUL_VW() != null ? s.getSTATUTUL_VW().trim() : "N/A");
+        holder.act_TXT.setText(s.getAct() != null ? s.getAct().trim() : "N/A");
+
 
         holder.mIcon.setInitials(true);
         holder.mIcon.setInitialsNumber(2);
         holder.mIcon.setLetterSize(25);
         holder.mIcon.setShapeColor(mMaterialColors[new Random().nextInt(
                 mMaterialColors.length)]);
-        holder.mIcon.setLetter(s.getLIST_COND_VW());
+        //holder.mIcon.setLetter(s.getLIST_COND_VW());
+        holder.mIcon.setLetter(s.getLIST_COND_VW() != null ? s.getLIST_COND_VW() : "");
+
 
         //get name and galaxy
         String name = s.getDEN_COM_VW().toLowerCase(Locale.getDefault()).trim();
