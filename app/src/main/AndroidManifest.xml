@@ -152,11 +152,11 @@
             android:label="Cl. tarilor"
             android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
 
-        <activity
-            android:name="com.bancusoft.list.Views.CRUDActivity"
-            android:theme="@style/CRUDTheme"
-            android:label="Adaugă  "
-            android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
+<!--        <activity-->
+<!--            android:name="com.bancusoft.list.Views.CRUDActivity"-->
+<!--            android:theme="@style/CRUDTheme"-->
+<!--            android:label="Adaugă  "-->
+<!--            android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />-->
 
 
         <activity
