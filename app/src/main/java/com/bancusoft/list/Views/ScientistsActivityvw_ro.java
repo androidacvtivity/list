@@ -171,20 +171,39 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
     /**
      * We inflate our menu. We show SearchView inside the toolbar
      */
+
+ //   Method invocation 'setOnQueryTextListener' may produce 'NullPointerException'
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.scientists_page_menu_vw, menu);
+//        MenuItem searchItem = menu.findItem(R.id.action_search_vw);
+//        SearchView searchView = (SearchView) searchItem.getActionView();
+//        searchView.setOnQueryTextListener(this);
+//        searchView.setIconified(true);
+//        searchView.setQueryHint("Căutare");
+//        return true;
+//    }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.scientists_page_menu_vw, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search_vw);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setOnQueryTextListener(this);
-        searchView.setIconified(true);
-        searchView.setQueryHint("Căutare");
+
+        if (searchItem != null) {
+            SearchView searchView = (SearchView) searchItem.getActionView();
+
+            if (searchView != null) {
+                searchView.setOnQueryTextListener(this);
+                searchView.setIconified(true);
+                searchView.setQueryHint("Căutare");
+            }
+        }
         return true;
     }
-
-
-
 
 
 
@@ -278,6 +297,7 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+
         Intent intent;
         intent = new Intent(this, DashboardActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

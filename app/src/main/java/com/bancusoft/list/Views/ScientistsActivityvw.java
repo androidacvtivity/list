@@ -14,6 +14,7 @@ import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -103,7 +104,7 @@ public class ScientistsActivityvw extends AppCompatActivity
                 Log.d("RETROFIT", "RESPONSE : " + response.body().getResultvw());
                 currentPageScientists = response.body().getResultvw();
 
-                if (currentPageScientists != null && currentPageScientists.size() > 0) {
+                if (currentPageScientists != null && !currentPageScientists.isEmpty()) {
                     if (action.equalsIgnoreCase("GET_PAGINATED_SEARCHVW")) {
                         allPagesScientists.clear();
                     }
@@ -171,17 +172,34 @@ public class ScientistsActivityvw extends AppCompatActivity
      * We inflate our menu. We show SearchView inside the toolbar
      */
     @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.scientists_page_menu_vw, menu);
+//        MenuItem searchItem = menu.findItem(R.id.action_search_vw);
+//        SearchView searchView = (SearchView) searchItem.getActionView();
+//        searchView.setOnQueryTextListener(this);
+//        searchView.setIconified(true);
+//        searchView.setQueryHint("Căutare");
+//        return true;
+//    }
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.scientists_page_menu_vw, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search_vw);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setOnQueryTextListener(this);
-        searchView.setIconified(true);
-        searchView.setQueryHint("Căutare");
+
+        if (searchItem != null) {
+            SearchView searchView = (SearchView) searchItem.getActionView();
+
+            if (searchView != null) {
+                searchView.setOnQueryTextListener(this);
+                searchView.setIconified(true);
+                searchView.setQueryHint("Căutare");
+            }
+        }
         return true;
     }
-
 
 
 
@@ -258,37 +276,59 @@ public class ScientistsActivityvw extends AppCompatActivity
     }
 
     @Override
-    public boolean onMenuItemActionExpand(MenuItem item) {
+    public boolean onMenuItemActionExpand(@NonNull MenuItem item) {
         return false;
     }
 
     @Override
-    public boolean onMenuItemActionCollapse(MenuItem item) {
+    public boolean onMenuItemActionCollapse(@NonNull MenuItem item) {
         return false;
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
+
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+
+
     }
 
 
 
 
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, DashboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        Intent intent;
+//        intent = new Intent(this, DashboardActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        finish();
+//        startActivity(intent);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scientistsvw);
 
+
+//-----------------------------
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(ScientistsActivityvw.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+//-----------------------------
         initializeViews();
         this.listenToRecyclerViewScroll();
         setupRecyclerView();

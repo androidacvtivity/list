@@ -1,5 +1,7 @@
 package com.bancusoft.list.Views;
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -60,19 +62,40 @@ public class DetailActivityvw extends AppCompatActivity  {
         receivedScientist = Utils.receiveScientistvw(getIntent(),DetailActivityvw.this);
 
         if(receivedScientist != null){
-            DEN_COM_VW_TV.setText(receivedScientist.getDEN_COM_VW().trim());
-            IDNO_VW_TV.setText(receivedScientist.getIDNO_VW().trim());
-            ADRESA_VW_TV.setText(receivedScientist.getADRESA_VW().trim());
-            FORMA_ORG_VW_TV.setText(receivedScientist.getFORMA_ORG_VW().trim());
-            LIST_COND_VW_TV.setText(receivedScientist.getLIST_COND_VW().trim());
-            LISTA_FOND_VW_TV.setText(receivedScientist.getLISTA_FOND_VW().trim());
-            GEN_ACT_NE_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_NE_LIC_VW().trim());
-            GEN_ACT_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_LIC_VW().trim());
-            STATUTUL_VW_TV.setText(receivedScientist.getSTATUTUL_VW().trim());
-            DATA_REG_VW_TV.setText(receivedScientist.getDATA_REG_VWW().trim());
-            act_TV.setText(receivedScientist.getAct().trim().toUpperCase());
-            mCollapsingToolbarLayoutvw.setTitle(receivedScientist.getIDNO_VW());
+
+//            //In this case must check if equal null
+//            DEN_COM_VW_TV.setText(receivedScientist.getDEN_COM_VW().trim());
+//            IDNO_VW_TV.setText(receivedScientist.getIDNO_VW().trim());
+//            ADRESA_VW_TV.setText(receivedScientist.getADRESA_VW().trim());
+//            FORMA_ORG_VW_TV.setText(receivedScientist.getFORMA_ORG_VW().trim());
+//            LIST_COND_VW_TV.setText(receivedScientist.getLIST_COND_VW().trim());
+//            LISTA_FOND_VW_TV.setText(receivedScientist.getLISTA_FOND_VW().trim());
+//            GEN_ACT_NE_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_NE_LIC_VW().trim());
+//            GEN_ACT_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_LIC_VW().trim());
+//            STATUTUL_VW_TV.setText(receivedScientist.getSTATUTUL_VW().trim());
+//            DATA_REG_VW_TV.setText(receivedScientist.getDATA_REG_VWW().trim());
+//            act_TV.setText(receivedScientist.getAct().trim().toUpperCase());
+//            mCollapsingToolbarLayoutvw.setTitle(receivedScientist.getIDNO_VW());
+//            mCollapsingToolbarLayoutvw.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
+
+            // Check if receivedScientist's fields are null before calling trim()
+            DEN_COM_VW_TV.setText(receivedScientist.getDEN_COM_VW() != null ? receivedScientist.getDEN_COM_VW().trim() : "N/A");
+            IDNO_VW_TV.setText(receivedScientist.getIDNO_VW() != null ? receivedScientist.getIDNO_VW().trim() : "N/A");
+            ADRESA_VW_TV.setText(receivedScientist.getADRESA_VW() != null ? receivedScientist.getADRESA_VW().trim() : "N/A");
+            FORMA_ORG_VW_TV.setText(receivedScientist.getFORMA_ORG_VW() != null ? receivedScientist.getFORMA_ORG_VW().trim() : "N/A");
+            LIST_COND_VW_TV.setText(receivedScientist.getLIST_COND_VW() != null ? receivedScientist.getLIST_COND_VW().trim() : "N/A");
+            LISTA_FOND_VW_TV.setText(receivedScientist.getLISTA_FOND_VW() != null ? receivedScientist.getLISTA_FOND_VW().trim() : "N/A");
+            GEN_ACT_NE_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_NE_LIC_VW() != null ? receivedScientist.getGEN_ACT_NE_LIC_VW().trim() : "N/A");
+            GEN_ACT_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_LIC_VW() != null ? receivedScientist.getGEN_ACT_LIC_VW().trim() : "N/A");
+            STATUTUL_VW_TV.setText(receivedScientist.getSTATUTUL_VW() != null ? receivedScientist.getSTATUTUL_VW().trim() : "N/A");
+            DATA_REG_VW_TV.setText(receivedScientist.getDATA_REG_VWW() != null ? receivedScientist.getDATA_REG_VWW().trim() : "N/A");
+            act_TV.setText(receivedScientist.getAct() != null ? receivedScientist.getAct().trim().toUpperCase() : "N/A");
+
+// Set title for collapsing toolbar
+            mCollapsingToolbarLayoutvw.setTitle(receivedScientist.getIDNO_VW() != null ? receivedScientist.getIDNO_VW() : "N/A");
             mCollapsingToolbarLayoutvw.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
+
+
         }
     }
     /**
@@ -186,24 +209,40 @@ public class DetailActivityvw extends AppCompatActivity  {
         Button mBtnShare = findViewById(R.id.btnShare_vw);
 
         mBtnShare.setOnClickListener(view -> {
-            String s_DEN_COM_VW_TV = DEN_COM_VW_TV.getText().toString();
-            String s_IDNO_VW_TV = IDNO_VW_TV.getText().toString();
-            String s_ADRESA_VW_TV = ADRESA_VW_TV.getText().toString();
-            String  s_FORMA_ORG_VW_TV = FORMA_ORG_VW_TV.getText().toString();
-            String  s_LIST_COND_VW_TV = LIST_COND_VW_TV.getText().toString();
-            String  s_LISTA_FOND_VW_TV = LISTA_FOND_VW_TV.getText().toString();
-            String  s_GEN_ACT_NE_LIC_VW_TV = GEN_ACT_NE_LIC_VW_TV.getText().toString();
-            String  s_GEN_ACT_LIC_VW_TVV = GEN_ACT_LIC_VW_TV.getText().toString();
-            String  s_STATUTUL_VW_TV = STATUTUL_VW_TV.getText().toString();
-            String  s_DATA_REG_VW_TV = DATA_REG_VW_TV.getText().toString();
-            String  s_act_TV = act_TV.getText().toString();
+
+//            //In this case
+//            String s_DEN_COM_VW_TV = DEN_COM_VW_TV.getText().toString();
+//            String s_IDNO_VW_TV = IDNO_VW_TV.getText().toString();
+//            String s_ADRESA_VW_TV = ADRESA_VW_TV.getText().toString();
+//            String  s_FORMA_ORG_VW_TV = FORMA_ORG_VW_TV.getText().toString();
+//            String  s_LIST_COND_VW_TV = LIST_COND_VW_TV.getText().toString();
+//            String  s_LISTA_FOND_VW_TV = LISTA_FOND_VW_TV.getText().toString();
+//            String  s_GEN_ACT_NE_LIC_VW_TV = GEN_ACT_NE_LIC_VW_TV.getText().toString();
+//            String  s_GEN_ACT_LIC_VW_TVV = GEN_ACT_LIC_VW_TV.getText().toString();
+//            String  s_STATUTUL_VW_TV = STATUTUL_VW_TV.getText().toString();
+//            String  s_DATA_REG_VW_TV = DATA_REG_VW_TV.getText().toString();
+//            String  s_act_TV = act_TV.getText().toString();
+
+            // Ensure TextViews are not null before retrieving their text
+            String s_DEN_COM_VW_TV = DEN_COM_VW_TV != null ? DEN_COM_VW_TV.getText().toString() : "";
+            String s_IDNO_VW_TV = IDNO_VW_TV != null ? IDNO_VW_TV.getText().toString() : "";
+            String s_ADRESA_VW_TV = ADRESA_VW_TV != null ? ADRESA_VW_TV.getText().toString() : "";
+            String s_FORMA_ORG_VW_TV = FORMA_ORG_VW_TV != null ? FORMA_ORG_VW_TV.getText().toString() : "";
+            String s_LIST_COND_VW_TV = LIST_COND_VW_TV != null ? LIST_COND_VW_TV.getText().toString() : "";
+            String s_LISTA_FOND_VW_TV = LISTA_FOND_VW_TV != null ? LISTA_FOND_VW_TV.getText().toString() : "";
+            String s_GEN_ACT_NE_LIC_VW_TV = GEN_ACT_NE_LIC_VW_TV != null ? GEN_ACT_NE_LIC_VW_TV.getText().toString() : "";
+            String s_GEN_ACT_LIC_VW_TVV = GEN_ACT_LIC_VW_TV != null ? GEN_ACT_LIC_VW_TV.getText().toString() : "";
+            String s_STATUTUL_VW_TV = STATUTUL_VW_TV != null ? STATUTUL_VW_TV.getText().toString() : "";
+            String s_DATA_REG_VW_TV = DATA_REG_VW_TV != null ? DATA_REG_VW_TV.getText().toString() : "";
+            String s_act_TV = act_TV != null ? act_TV.getText().toString() : "";
 
 
             String contentShare = " IDNO / Cod fiscal : " + s_IDNO_VW_TV + " - Data înregistrării :  " + s_DATA_REG_VW_TV + " - Denumirea comercială - " + s_DEN_COM_VW_TV
                     + " - Forma org./jurid. :  " +  s_FORMA_ORG_VW_TV
                     + " -  Adresa :  " +  s_ADRESA_VW_TV + "  - Lista conducătorilor  :  " + s_LIST_COND_VW_TV + " -  Lista fondatorilor (cota parte în capitalul social %) :  " + s_LISTA_FOND_VW_TV
                     + " -  : Genuri de activitate nelicentiate " + s_GEN_ACT_NE_LIC_VW_TV +  " -  Genuri de activitate licentiate :  " +  s_GEN_ACT_LIC_VW_TVV + " -  Statutul :  " + s_STATUTUL_VW_TV
-                    + " - Ultima actualizare" + s_act_TV + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.list&gl=MD";
+                    + " - Ultima actualizare" + s_act_TV + " -- The application -Level Stat - can be downloaded from here "
+                     +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");

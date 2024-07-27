@@ -1,5 +1,7 @@
 package com.bancusoft.list.Views;
 
+import static com.bancusoft.list.Helpers.Utils.app_google;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -166,6 +169,16 @@ public class DetailActivityclcaem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_cl_caem);
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent intent = new Intent(DetailActivityclcaem.this, ScientistsActivitycucaem.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        });
+
         CODUL_TV_CAEM = findViewById(R.id.CODUL_TV_CAEM);
         DENUMIRE_TV_caem = findViewById(R.id.DENUMIRE_TV_caem);
 
@@ -180,8 +193,8 @@ public class DetailActivityclcaem extends AppCompatActivity {
             String contentShare = " Codul CAEM : " + s_CODUL_TV_CAEM + " - Denumirea activitatii, \n" +
                     "  :  " + s_DENUMIRE_TV_caem
 
-                    + " -- The application -Level Stat - can be downloaded from here "  + "https://play.google.com/store/apps/details?id=com.bancusoft.accountant&gl=MD"
-                    ;
+                    + " -- The application -Level Stat - can be downloaded from here "
+                    +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
