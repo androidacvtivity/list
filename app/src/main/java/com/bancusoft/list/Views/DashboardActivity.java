@@ -161,19 +161,7 @@ help_cl_med.setOnClickListener(v -> Utils.openActivity(DashboardActivity.this, h
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    /**
-     * When the back button is pressed finish this activity
-     */
-//    //Is deprecated
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        this.finish();
-//    }
 
-    /**
-     * Let's override the onCreate() and call our initializeWidgets()
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

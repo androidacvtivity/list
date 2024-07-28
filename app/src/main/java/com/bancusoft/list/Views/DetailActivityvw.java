@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -62,22 +63,6 @@ public class DetailActivityvw extends AppCompatActivity  {
         receivedScientist = Utils.receiveScientistvw(getIntent(),DetailActivityvw.this);
 
         if(receivedScientist != null){
-
-//            //In this case must check if equal null
-//            DEN_COM_VW_TV.setText(receivedScientist.getDEN_COM_VW().trim());
-//            IDNO_VW_TV.setText(receivedScientist.getIDNO_VW().trim());
-//            ADRESA_VW_TV.setText(receivedScientist.getADRESA_VW().trim());
-//            FORMA_ORG_VW_TV.setText(receivedScientist.getFORMA_ORG_VW().trim());
-//            LIST_COND_VW_TV.setText(receivedScientist.getLIST_COND_VW().trim());
-//            LISTA_FOND_VW_TV.setText(receivedScientist.getLISTA_FOND_VW().trim());
-//            GEN_ACT_NE_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_NE_LIC_VW().trim());
-//            GEN_ACT_LIC_VW_TV.setText(receivedScientist.getGEN_ACT_LIC_VW().trim());
-//            STATUTUL_VW_TV.setText(receivedScientist.getSTATUTUL_VW().trim());
-//            DATA_REG_VW_TV.setText(receivedScientist.getDATA_REG_VWW().trim());
-//            act_TV.setText(receivedScientist.getAct().trim().toUpperCase());
-//            mCollapsingToolbarLayoutvw.setTitle(receivedScientist.getIDNO_VW());
-//            mCollapsingToolbarLayoutvw.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
-
             // Check if receivedScientist's fields are null before calling trim()
             DEN_COM_VW_TV.setText(receivedScientist.getDEN_COM_VW() != null ? receivedScientist.getDEN_COM_VW().trim() : "N/A");
             IDNO_VW_TV.setText(receivedScientist.getIDNO_VW() != null ? receivedScientist.getIDNO_VW().trim() : "N/A");
@@ -174,19 +159,6 @@ public class DetailActivityvw extends AppCompatActivity  {
     }
 
     /**
-     * Let's finish the current activity when back button is pressed
-     */
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, ScientistsActivityvw.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
-
-
-    /**
      * Our onCreate method
      */
     @Override
@@ -210,19 +182,6 @@ public class DetailActivityvw extends AppCompatActivity  {
 
         mBtnShare.setOnClickListener(view -> {
 
-//            //In this case
-//            String s_DEN_COM_VW_TV = DEN_COM_VW_TV.getText().toString();
-//            String s_IDNO_VW_TV = IDNO_VW_TV.getText().toString();
-//            String s_ADRESA_VW_TV = ADRESA_VW_TV.getText().toString();
-//            String  s_FORMA_ORG_VW_TV = FORMA_ORG_VW_TV.getText().toString();
-//            String  s_LIST_COND_VW_TV = LIST_COND_VW_TV.getText().toString();
-//            String  s_LISTA_FOND_VW_TV = LISTA_FOND_VW_TV.getText().toString();
-//            String  s_GEN_ACT_NE_LIC_VW_TV = GEN_ACT_NE_LIC_VW_TV.getText().toString();
-//            String  s_GEN_ACT_LIC_VW_TVV = GEN_ACT_LIC_VW_TV.getText().toString();
-//            String  s_STATUTUL_VW_TV = STATUTUL_VW_TV.getText().toString();
-//            String  s_DATA_REG_VW_TV = DATA_REG_VW_TV.getText().toString();
-//            String  s_act_TV = act_TV.getText().toString();
-
             // Ensure TextViews are not null before retrieving their text
             String s_DEN_COM_VW_TV = DEN_COM_VW_TV != null ? DEN_COM_VW_TV.getText().toString() : "";
             String s_IDNO_VW_TV = IDNO_VW_TV != null ? IDNO_VW_TV.getText().toString() : "";
@@ -241,7 +200,7 @@ public class DetailActivityvw extends AppCompatActivity  {
                     + " - Forma org./jurid. :  " +  s_FORMA_ORG_VW_TV
                     + " -  Adresa :  " +  s_ADRESA_VW_TV + "  - Lista conducătorilor  :  " + s_LIST_COND_VW_TV + " -  Lista fondatorilor (cota parte în capitalul social %) :  " + s_LISTA_FOND_VW_TV
                     + " -  : Genuri de activitate nelicentiate " + s_GEN_ACT_NE_LIC_VW_TV +  " -  Genuri de activitate licentiate :  " +  s_GEN_ACT_LIC_VW_TVV + " -  Statutul :  " + s_STATUTUL_VW_TV
-                    + " - Ultima actualizare" + s_act_TV + " -- The application -Level Stat - can be downloaded from here "
+                    + " - Ultima actualizare - " + s_act_TV + " -- The application -Level Stat - can be downloaded from here "
                      +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
@@ -254,6 +213,25 @@ public class DetailActivityvw extends AppCompatActivity  {
         });
 
 
+
+        //-----------------------------
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(DetailActivityvw.this, ScientistsActivityvw.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+//-----------------------------
 
         initializeWidgets();
         receiveAndShowData();
