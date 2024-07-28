@@ -61,10 +61,7 @@
             android:label="Cl. PRODMOLD"
             android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
 
-        <activity
-            android:name="com.bancusoft.list.Views.ScientistsActivity"
-            android:label="Angajații BNS"
-            android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
+
 
 
 
@@ -143,20 +140,6 @@
             android:name="com.bancusoft.list.Views.ScientistsActivitycltari"
             android:label="Cl. tarilor"
             android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
-
-<!--        <activity-->
-<!--            android:name="com.bancusoft.list.Views.CRUDActivity"-->
-<!--            android:theme="@style/CRUDTheme"-->
-<!--            android:label="Adaugă  "-->
-<!--            android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />-->
-
-
-        <activity
-        android:name="com.bancusoft.list.Views.DetailActivity"
-        android:label="Despre angajat "
-        android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
-
-
 
 
         <activity
