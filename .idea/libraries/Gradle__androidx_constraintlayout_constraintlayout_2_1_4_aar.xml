@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/4bcbdb61f70c63be020394c3ae9403e9/transformed/constraintlayout-2.1.4/res" />
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/4bcbdb61f70c63be020394c3ae9403e9/transformed/constraintlayout-2.1.4/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/4bcbdb61f70c63be020394c3ae9403e9/transformed/constraintlayout-2.1.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/StudioProjects/list/caches/transforms-3/4bcbdb61f70c63be020394c3ae9403e9/transformed/constraintlayout-2.1.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/StudioProjects/list/caches/transforms-3/4bcbdb61f70c63be020394c3ae9403e9/transformed/constraintlayout-2.1.4/res" />
+      <root url="file://$USER_HOME$/StudioProjects/list/caches/transforms-3/4bcbdb61f70c63be020394c3ae9403e9/transformed/constraintlayout-2.1.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
