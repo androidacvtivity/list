@@ -11,13 +11,17 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.Helpers.ViewUtils;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Cl_medicament;
 import com.bancusoft.list.Retrofit.Scientist;
+import com.bancusoft.list.Views.DetailActivityvw_ro;
+import com.bancusoft.list.Views.ScientistsActivityvw_ro;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
@@ -74,41 +78,71 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
     /**
      * We will now receive and show our data to their appropriate views.
      */
-    private void receiveAndShowData(){
 
-        //  private FloatingActionButton editFAB;
+    private void receiveAndShowData() {
         Cl_medicament receivedCl_medicament = Utils.receiveCl_medicament(getIntent(), DetailActivity_cl_med.this);
 
-        if(receivedCl_medicament != null){
-            codul_medTV.setText(receivedCl_medicament.getCodul_med().trim());
-            codul_vamalTV.setText(receivedCl_medicament.getcodul_vamal().trim());
-             den_comeTV.setText(receivedCl_medicament.getden_come().trim());
-              forma_farmaceuticaTV.setText(receivedCl_medicament.getforma_farmaceutica().trim());
-               doza_concentratiaTV.setText(receivedCl_medicament.getdoza_concentratia().trim());
-               volumTV.setText(receivedCl_medicament.getvolum().trim());
-               divizareaTV.setText(receivedCl_medicament.getdivizarea().trim());
-               taraTV.setText(receivedCl_medicament.getTara().trim());
-               producatorulTV.setText(receivedCl_medicament.getProducatorul().trim());
-               nr_inregistrareTV.setText(receivedCl_medicament.getNr_inregistrare().trim());
-               data_inregistrariiTV.setText(receivedCl_medicament.getData_inregistrarii().trim());
-               codul_atcTV.setText(receivedCl_medicament.getCodul_atc().trim());
-              denumirea_intTV.setText(receivedCl_medicament.getDenumirea_int().trim());
-             termen_valabilitateTV.setText(receivedCl_medicament.getTermen_valabilitate().trim());
-             codul_cu_bareTV.setText(receivedCl_medicament.getCodul_cu_bare().trim());
+        if (receivedCl_medicament != null) {
+            ViewUtils.setTextSafely(codul_medTV, receivedCl_medicament.getCodul_med());
+            ViewUtils.setTextSafely(codul_vamalTV, receivedCl_medicament.getcodul_vamal());
+            ViewUtils.setTextSafely(den_comeTV, receivedCl_medicament.getden_come());
+            ViewUtils.setTextSafely(forma_farmaceuticaTV, receivedCl_medicament.getforma_farmaceutica());
+            ViewUtils.setTextSafely(doza_concentratiaTV, receivedCl_medicament.getdoza_concentratia());
+            ViewUtils.setTextSafely(volumTV, receivedCl_medicament.getvolum());
+            ViewUtils.setTextSafely(divizareaTV, receivedCl_medicament.getdivizarea());
+            ViewUtils.setTextSafely(taraTV, receivedCl_medicament.getTara());
+            ViewUtils.setTextSafely(producatorulTV, receivedCl_medicament.getProducatorul());
+            ViewUtils.setTextSafely(nr_inregistrareTV, receivedCl_medicament.getNr_inregistrare());
+            ViewUtils.setTextSafely(data_inregistrariiTV, receivedCl_medicament.getData_inregistrarii());
+            ViewUtils.setTextSafely(codul_atcTV, receivedCl_medicament.getCodul_atc());
+            ViewUtils.setTextSafely(denumirea_intTV, receivedCl_medicament.getDenumirea_int());
+            ViewUtils.setTextSafely(termen_valabilitateTV, receivedCl_medicament.getTermen_valabilitate());
+            ViewUtils.setTextSafely(codul_cu_bareTV, receivedCl_medicament.getCodul_cu_bare());
 
-
-
-            mCollapsingToolbarLayout.setTitle(receivedCl_medicament.getden_come());
-
-
-
-
-            mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.darkRed));
+            if (mCollapsingToolbarLayout != null && receivedCl_medicament.getden_come() != null) {
+                mCollapsingToolbarLayout.setTitle(receivedCl_medicament.getden_come());
+                mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.darkRed));
+            }
         }
     }
-    /**
-     * Let's inflate our menu for the detail page
-     */
+
+
+//    //Same if  is necessary
+//    private void receiveAndShowData(){
+//
+//        //  private FloatingActionButton editFAB;
+//        Cl_medicament receivedCl_medicament = Utils.receiveCl_medicament(getIntent(), DetailActivity_cl_med.this);
+//
+//        if(receivedCl_medicament != null){
+//            codul_medTV.setText(receivedCl_medicament.getCodul_med().trim());
+//            codul_vamalTV.setText(receivedCl_medicament.getcodul_vamal().trim());
+//             den_comeTV.setText(receivedCl_medicament.getden_come().trim());
+//              forma_farmaceuticaTV.setText(receivedCl_medicament.getforma_farmaceutica().trim());
+//               doza_concentratiaTV.setText(receivedCl_medicament.getdoza_concentratia().trim());
+//               volumTV.setText(receivedCl_medicament.getvolum().trim());
+//               divizareaTV.setText(receivedCl_medicament.getdivizarea().trim());
+//               taraTV.setText(receivedCl_medicament.getTara().trim());
+//               producatorulTV.setText(receivedCl_medicament.getProducatorul().trim());
+//               nr_inregistrareTV.setText(receivedCl_medicament.getNr_inregistrare().trim());
+//               data_inregistrariiTV.setText(receivedCl_medicament.getData_inregistrarii().trim());
+//               codul_atcTV.setText(receivedCl_medicament.getCodul_atc().trim());
+//              denumirea_intTV.setText(receivedCl_medicament.getDenumirea_int().trim());
+//             termen_valabilitateTV.setText(receivedCl_medicament.getTermen_valabilitate().trim());
+//             codul_cu_bareTV.setText(receivedCl_medicament.getCodul_cu_bare().trim());
+//
+//
+//
+//            mCollapsingToolbarLayout.setTitle(receivedCl_medicament.getden_come());
+//
+//
+//
+//
+//            mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.darkRed));
+//        }
+//    }
+//    /**
+//     * Let's inflate our menu for the detail page
+//     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_page_menu_cl_med, menu);
@@ -185,17 +219,17 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    /**
-     * Let's finish the current activity when back button is pressed
-     */
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, CL_medicament_Activity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
+//    /**
+//     * Let's finish the current activity when back button is pressed
+//     */
+//    @Override
+//    public void onBackPressed() {
+//        Intent intent;
+//        intent = new Intent(this, CL_medicament_Activity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        finish();
+//        startActivity(intent);
+//    }
 
 
 
@@ -224,21 +258,40 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
         Button mBtnShare = findViewById(R.id.btnShare);
 
         mBtnShare.setOnClickListener(view -> {
-            String s_codul_medTV = codul_medTV.getText().toString();
-            String s_codul_vamalTV = codul_vamalTV.getText().toString();
-            String s_den_comeTV = den_comeTV.getText().toString();
-            String  s_forma_farmaceuticaTV = forma_farmaceuticaTV.getText().toString();
-            String  s_doza_concentratiaTV = doza_concentratiaTV.getText().toString();
-            String  s_volumTV = volumTV.getText().toString();
-            String  s_divizareaTV = divizareaTV.getText().toString();
-            String  s_taraTV = taraTV.getText().toString();
-            String  s_producatorulTV = producatorulTV.getText().toString();
-            String  s_nr_inregistrareTV = nr_inregistrareTV.getText().toString();
-            String  s_data_inregistrariiTV = data_inregistrariiTV.getText().toString();
-            String  s_codul_atcTV = codul_atcTV.getText().toString();
-            String  s_denumirea_intTV = denumirea_intTV.getText().toString();
-            String  s_termen_valabilitateTV = termen_valabilitateTV.getText().toString();
-            String  s_codul_cu_bareTV = codul_cu_bareTV.getText().toString();
+            //Same
+//            String s_codul_medTV = codul_medTV.getText().toString();
+//            String s_codul_vamalTV = codul_vamalTV.getText().toString();
+//            String s_den_comeTV = den_comeTV.getText().toString();
+//            String  s_forma_farmaceuticaTV = forma_farmaceuticaTV.getText().toString();
+//            String  s_doza_concentratiaTV = doza_concentratiaTV.getText().toString();
+//            String  s_volumTV = volumTV.getText().toString();
+//            String  s_divizareaTV = divizareaTV.getText().toString();
+//            String  s_taraTV = taraTV.getText().toString();
+//            String  s_producatorulTV = producatorulTV.getText().toString();
+//            String  s_nr_inregistrareTV = nr_inregistrareTV.getText().toString();
+//            String  s_data_inregistrariiTV = data_inregistrariiTV.getText().toString();
+//            String  s_codul_atcTV = codul_atcTV.getText().toString();
+//            String  s_denumirea_intTV = denumirea_intTV.getText().toString();
+//            String  s_termen_valabilitateTV = termen_valabilitateTV.getText().toString();
+//            String  s_codul_cu_bareTV = codul_cu_bareTV.getText().toString();
+
+
+            // Ensure TextViews are not null before retrieving their text
+            String s_codul_medTV = codul_medTV != null ? codul_medTV.getText().toString() : "";
+            String s_codul_vamalTV = codul_vamalTV != null ? codul_vamalTV.getText().toString() : "";
+            String s_den_comeTV = den_comeTV != null ? den_comeTV.getText().toString() : "";
+            String s_forma_farmaceuticaTV = forma_farmaceuticaTV != null ? forma_farmaceuticaTV.getText().toString() : "";
+            String s_doza_concentratiaTV = doza_concentratiaTV != null ? doza_concentratiaTV.getText().toString() : "";
+            String s_volumTV = volumTV != null ? volumTV.getText().toString() : "";
+            String s_divizareaTV = divizareaTV != null ? divizareaTV.getText().toString() : "";
+            String s_taraTV = taraTV != null ? taraTV.getText().toString() : "";
+            String s_producatorulTV = producatorulTV != null ? producatorulTV.getText().toString() : "";
+            String s_nr_inregistrareTV = nr_inregistrareTV != null ? nr_inregistrareTV.getText().toString() : "";
+            String s_data_inregistrariiTV = data_inregistrariiTV != null ? data_inregistrariiTV.getText().toString() : "";
+            String s_codul_atcTV = codul_atcTV != null ? codul_atcTV.getText().toString() : "";
+            String s_denumirea_intTV = denumirea_intTV != null ? denumirea_intTV.getText().toString() : "";
+            String s_termen_valabilitateTV = termen_valabilitateTV != null ? termen_valabilitateTV.getText().toString() : "";
+            String s_codul_cu_bareTV = codul_cu_bareTV != null ? codul_cu_bareTV.getText().toString() : "";
 
 
             String contentShare_md = " Codul medicamentului  : " + s_codul_medTV + "-   Codul vamal :  "+ s_codul_vamalTV + " - Denumirea comercială :  " +  s_den_comeTV
@@ -263,6 +316,25 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
 
             startActivity(Intent.createChooser(sharingIntent, "Share text via"));
         });
+
+        //-----------------------------
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(DetailActivity_cl_med.this, CL_medicament_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+//-----------------------------
 
    initializeWidgets();
         receiveAndShowData();
