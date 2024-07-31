@@ -15,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -98,7 +99,7 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
         {
             Utils.showProgressBar(mProgressBar);
             retrievedData = api.retrievecl_medicament();
-            //    retrievedData = api.search("GET_PAGINATED", queryString, start, limit);
+           //     retrievedData = api.search("GET_PAGINATED", queryString, start, limit);
 
         }
 
@@ -181,25 +182,24 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
     /**
      * We inflate our menu. We show SearchView inside the toolbar
      */
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.medicament_page_menu, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search_med);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setOnQueryTextListener(this);
-        searchView.setIconified(true);
-        searchView.setQueryHint("Căutare med.");
+
+        if (searchItem != null) {
+            SearchView searchView = (SearchView) searchItem.getActionView();
+
+            if (searchView != null) {
+                searchView.setOnQueryTextListener(this);
+                searchView.setIconified(true);
+                searchView.setQueryHint("Căutare");
+            }
+        }
         return true;
     }
 
-
-
-
-
-
-
-    @Override
+ @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
@@ -282,14 +282,6 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
     }
 
 
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, DashboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -300,6 +292,25 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
         this.listenToRecyclerViewScroll();
         setupRecyclerView();
         retrieveAndFillRecyclerView("GET_PAGINATEDCLMED", "", "0");
+
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(CL_medicament_Activity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+//-----------------------------
+
     }
 
     public void setReceivedScientist(Scientist receivedScientist) {
