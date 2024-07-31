@@ -289,21 +289,7 @@ public class ScientistsActivityvw extends AppCompatActivity
     protected void attachBaseContext(Context newBase) {
 
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
-
-
     }
-
-
-
-
-//    @Override
-//    public void onBackPressed() {
-//        Intent intent;
-//        intent = new Intent(this, DashboardActivity.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        finish();
-//        startActivity(intent);
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
