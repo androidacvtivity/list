@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
 
     //our splash screen views
     private ImageView mLogo;
-    private TextView mainTitle, subTitle;
+    private TextView mainTitle;
 
     /**
      * Let's initialize our widgets.

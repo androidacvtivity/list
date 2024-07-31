@@ -200,7 +200,7 @@ public class DetailActivityvw extends AppCompatActivity  {
                     + " - Forma org./jurid. :  " +  s_FORMA_ORG_VW_TV
                     + " -  Adresa :  " +  s_ADRESA_VW_TV + "  - Lista conducătorilor  :  " + s_LIST_COND_VW_TV + " -  Lista fondatorilor (cota parte în capitalul social %) :  " + s_LISTA_FOND_VW_TV
                     + " -  : Genuri de activitate nelicentiate " + s_GEN_ACT_NE_LIC_VW_TV +  " -  Genuri de activitate licentiate :  " +  s_GEN_ACT_LIC_VW_TVV + " -  Statutul :  " + s_STATUTUL_VW_TV
-                    + " - Ultima actualizare - " + s_act_TV + " -- The application -Level Stat - can be downloaded from here "
+                    + " - Ultima actualizare - " + s_act_TV + " -- The application -Stat Level  - can be downloaded from here "
                      +  app_google;
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);

@@ -28,7 +28,7 @@ public class help_vw extends BaseActivity{
         setSupportActionBar(toolbar);
 
         //findViewById(R.id.mBackArrowh).setOnClickListener(v -> finish());
-        findViewById(R.id.mBackArrowh_vw).setOnClickListener( v -> Utils.showInfoDialog_help_ro(this,
+        findViewById(R.id.mBackArrowh_vw).setOnClickListener( v -> Utils.showInfoDialog_help_ro_vw(this,
                 "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar in limba engleza si rusa.") );
     }
 
@@ -77,7 +77,7 @@ public class help_vw extends BaseActivity{
         if (id == android.R.id.home){
 
             Intent intent;
-            intent = new Intent(this, ScientistsActivity.class);
+            intent = new Intent(this, ScientistsActivityvw.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             finish();
             startActivity(intent);
