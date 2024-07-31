@@ -106,43 +106,10 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
         }
     }
 
+    //    /**
+    //     * Let's inflate our menu for the detail page
+    //     */
 
-//    //Same if  is necessary
-//    private void receiveAndShowData(){
-//
-//        //  private FloatingActionButton editFAB;
-//        Cl_medicament receivedCl_medicament = Utils.receiveCl_medicament(getIntent(), DetailActivity_cl_med.this);
-//
-//        if(receivedCl_medicament != null){
-//            codul_medTV.setText(receivedCl_medicament.getCodul_med().trim());
-//            codul_vamalTV.setText(receivedCl_medicament.getcodul_vamal().trim());
-//             den_comeTV.setText(receivedCl_medicament.getden_come().trim());
-//              forma_farmaceuticaTV.setText(receivedCl_medicament.getforma_farmaceutica().trim());
-//               doza_concentratiaTV.setText(receivedCl_medicament.getdoza_concentratia().trim());
-//               volumTV.setText(receivedCl_medicament.getvolum().trim());
-//               divizareaTV.setText(receivedCl_medicament.getdivizarea().trim());
-//               taraTV.setText(receivedCl_medicament.getTara().trim());
-//               producatorulTV.setText(receivedCl_medicament.getProducatorul().trim());
-//               nr_inregistrareTV.setText(receivedCl_medicament.getNr_inregistrare().trim());
-//               data_inregistrariiTV.setText(receivedCl_medicament.getData_inregistrarii().trim());
-//               codul_atcTV.setText(receivedCl_medicament.getCodul_atc().trim());
-//              denumirea_intTV.setText(receivedCl_medicament.getDenumirea_int().trim());
-//             termen_valabilitateTV.setText(receivedCl_medicament.getTermen_valabilitate().trim());
-//             codul_cu_bareTV.setText(receivedCl_medicament.getCodul_cu_bare().trim());
-//
-//
-//
-//            mCollapsingToolbarLayout.setTitle(receivedCl_medicament.getden_come());
-//
-//
-//
-//
-//            mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.darkRed));
-//        }
-//    }
-//    /**
-//     * Let's inflate our menu for the detail page
-//     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_page_menu_cl_med, menu);
@@ -219,21 +186,6 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-//    /**
-//     * Let's finish the current activity when back button is pressed
-//     */
-//    @Override
-//    public void onBackPressed() {
-//        Intent intent;
-//        intent = new Intent(this, CL_medicament_Activity.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        finish();
-//        startActivity(intent);
-//    }
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -258,22 +210,6 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
         Button mBtnShare = findViewById(R.id.btnShare);
 
         mBtnShare.setOnClickListener(view -> {
-            //Same
-//            String s_codul_medTV = codul_medTV.getText().toString();
-//            String s_codul_vamalTV = codul_vamalTV.getText().toString();
-//            String s_den_comeTV = den_comeTV.getText().toString();
-//            String  s_forma_farmaceuticaTV = forma_farmaceuticaTV.getText().toString();
-//            String  s_doza_concentratiaTV = doza_concentratiaTV.getText().toString();
-//            String  s_volumTV = volumTV.getText().toString();
-//            String  s_divizareaTV = divizareaTV.getText().toString();
-//            String  s_taraTV = taraTV.getText().toString();
-//            String  s_producatorulTV = producatorulTV.getText().toString();
-//            String  s_nr_inregistrareTV = nr_inregistrareTV.getText().toString();
-//            String  s_data_inregistrariiTV = data_inregistrariiTV.getText().toString();
-//            String  s_codul_atcTV = codul_atcTV.getText().toString();
-//            String  s_denumirea_intTV = denumirea_intTV.getText().toString();
-//            String  s_termen_valabilitateTV = termen_valabilitateTV.getText().toString();
-//            String  s_codul_cu_bareTV = codul_cu_bareTV.getText().toString();
 
 
             // Ensure TextViews are not null before retrieving their text
