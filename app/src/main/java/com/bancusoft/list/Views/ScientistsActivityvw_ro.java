@@ -3,6 +3,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -172,18 +174,6 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
      * We inflate our menu. We show SearchView inside the toolbar
      */
 
- //   Method invocation 'setOnQueryTextListener' may produce 'NullPointerException'
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.scientists_page_menu_vw, menu);
-//        MenuItem searchItem = menu.findItem(R.id.action_search_vw);
-//        SearchView searchView = (SearchView) searchItem.getActionView();
-//        searchView.setOnQueryTextListener(this);
-//        searchView.setIconified(true);
-//        searchView.setQueryHint("Căutare");
-//        return true;
-//    }
 
 
 
@@ -211,12 +201,12 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
 
 
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//
-//        int id = item.getItemId();
-//
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        int id = item.getItemId();
+
 //        if (id==R.id.action_new_vw){
 //            Utils.sendScientistvw_roToActivity(this,receivedScientist,help_vw.class);
 //            finish();
@@ -241,31 +231,33 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
 //            return true;
 //
 //        }
-//
-//        else
-//        if (id == android.R.id.home){
-//
-//            Intent intent;
-//            intent = new Intent(this,DashboardActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            finish();
-//            startActivity(intent);
-//            return true;
-//
-//        }
-//
-//
-//        else
-//        if (id == R.id.video2_vw){
-//
-//            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(com.bancusoft.accountant.Helpers.Utils.youtube_level_stat));
-//
-//            startActivity(browserIntent);
-//
-//
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+
+     //   else
+        if (id == android.R.id.home){
+
+            Intent intent;
+            intent = new Intent(this,DashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            finish();
+            startActivity(intent);
+            return true;
+
+        }
+
+
+        else
+        if (id == R.id.video2_vw){
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(com.bancusoft.list.Helpers.Utils.youtube_level_stat));
+
+            startActivity(browserIntent);
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
@@ -295,15 +287,7 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
 
 
 
-    @Override
-    public void onBackPressed() {
 
-        Intent intent;
-        intent = new Intent(this, DashboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -314,6 +298,31 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
         this.listenToRecyclerViewScroll();
         setupRecyclerView();
         retrieveAndFillRecyclerView("GET_PAGINATEDVW_RO", "", "0");
+
+
+
+        //-----------------------------
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(ScientistsActivityvw_ro.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+//-----------------------------
+
+
+
+
     }
 
     public void setReceivedScientist(Scientistsvw_ro receivedScientist) {
