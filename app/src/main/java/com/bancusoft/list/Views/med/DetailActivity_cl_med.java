@@ -255,6 +255,7 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
 
         //-----------------------------
 
+        //Rezolva dupa acest exemplu
         // Register the onBackPressed callback
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override

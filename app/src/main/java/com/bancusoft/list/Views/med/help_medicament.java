@@ -1,5 +1,6 @@
-package com.bancusoft.list.Views.med;
 
+//In this class I have  onBackPressed
+package com.bancusoft.list.Views.med;
 import static com.bancusoft.list.Helpers.Utils.showInfoDialog_help_ro_med;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Scientist;
 import com.bancusoft.list.Views.BaseActivity;
@@ -39,6 +41,8 @@ public class help_medicament extends BaseActivity {
                 "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar despre clasificatorul medicamentelor  in limba engleza si rusa.");
         //this.finish();
     }
+
+
 
 
     /**

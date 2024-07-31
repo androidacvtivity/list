@@ -63,7 +63,7 @@ public class help_medicament_en extends BaseActivity{
         int id = item.getItemId();
 
         if (id==R.id.rolang_med){
-            Utils.sendScientistToActivity(this,receivedScientist, help_medicament.class);
+            Utils.sendScientistToActivity(this,receivedScientist, help_medicament_2.class);
             finish();
             return true;
 
