@@ -151,20 +151,14 @@ public class Utils {
 
     public static void showInfoDialog_help_ro_vw(final AppCompatActivity activity, String title,
                                               String message) {
-
-
         new AlertDialog.Builder(activity)
-
                 .setTitle(title)
                 .setIcon(R.drawable.m_info)
                 .setMessage(message)
                 .setPositiveButton("en", (dialog, which) -> openActivity(activity, help_vw_en.class))
                 .setNeutralButton("La inceput", (dialog, which) -> openActivity(activity, DashboardActivity.class))
                 .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_vw_ru.class))
-
                 .show();
-
-
     }
 
 
