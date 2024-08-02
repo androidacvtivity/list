@@ -1,14 +1,15 @@
 package com.bancusoft.list.Views.med;
 
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_en_med_3;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.widget.Toolbar;
-
 import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Scientist;
 import com.bancusoft.list.Views.BaseActivity;
@@ -27,17 +28,28 @@ public class help_medicament_en extends BaseActivity{
         setSupportActionBar(toolbar);
 
         //findViewById(R.id.mBackArrowh).setOnClickListener(v -> finish());
-        findViewById(R.id.mBackArrowh_en_med_en).setOnClickListener( v -> Utils.showInfoDialog_help_en_med(this,
-                "Atenție", "Are you sure you want to go out? There is a translation in the guide for the medicament classifier in English and Russian.") );
+        findViewById(R.id.mBackArrowh_en_med_en).setOnClickListener( v -> Utils_2.showInfoDialog_help_en_med_3(this,
+                "Atenție", "Are you sure you want to go out? There is a translation in the guide for the medicament classifier in Romanian and Russian.") );
+
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Show the info dialog
+                showInfoDialog_help_en_med_3(help_medicament_en.this,
+                        "Atenție", "Are you sure you want to go out? There is a translation in the guide for the medicament classifier in Romanian  and Russian.");
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+
+
     }
 
 
-    @Override
-    public void onBackPressed() {
-        Utils.showInfoDialog_help_en_med(this,
-                "Atenție", "Are you sure you want to go out? There is a translation in the guide for the medicament classifier in English and Russian.");
-        //this.finish();
-    }
 
 
     /**

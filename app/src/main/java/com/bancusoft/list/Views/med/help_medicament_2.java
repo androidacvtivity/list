@@ -1,20 +1,14 @@
 package com.bancusoft.list.Views.med;
-
-import static com.bancusoft.list.Helpers.Utils.showInfoDialog_help_ro_med;
-import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ro_med_2;
 import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ro_med_3;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.widget.Toolbar;
-
 import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Scientist;
 import com.bancusoft.list.Views.BaseActivity;
@@ -31,7 +25,7 @@ public class help_medicament_2 extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.aboutUsToolBarn_med);
         setSupportActionBar(toolbar);
 
-        findViewById(R.id.mBackArrowh_med).setOnClickListener(v -> showInfoDialog_help_ro_med(this,
+        findViewById(R.id.mBackArrowh_med).setOnClickListener(v -> Utils_2.showInfoDialog_help_ro_med_3(this,
                 "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar despre clasificatorul medicamentelor  in limba engleza si rusa."));
 
         // Register the onBackPressed callback
