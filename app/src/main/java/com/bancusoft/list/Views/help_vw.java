@@ -1,16 +1,18 @@
 
 package com.bancusoft.list.Views;
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ro_vw_3;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.Retrofit.Scientistvw;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.widget.Toolbar;
-
 import com.bancusoft.list.Helpers.Utils;
 import com.bancusoft.list.R;
+
 
 public class help_vw extends BaseActivity{
 
@@ -28,8 +30,24 @@ public class help_vw extends BaseActivity{
         setSupportActionBar(toolbar);
 
         //findViewById(R.id.mBackArrowh).setOnClickListener(v -> finish());
-        findViewById(R.id.mBackArrowh_vw).setOnClickListener( v -> Utils.showInfoDialog_help_ro_vw(this,
+        findViewById(R.id.mBackArrowh_vw).setOnClickListener( v -> Utils_2.showInfoDialog_help_ro_vw_3(this,
                 "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar in limba engleza si rusa.") );
+
+
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Show the info dialog
+                showInfoDialog_help_ro_vw_3(help_vw.this,
+                        "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar in limba engleza si rusa.");
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,22 +112,14 @@ public class help_vw extends BaseActivity{
 
 
         }
-
-
-
-
-
-
-
-
-        return super.onOptionsItemSelected(item);
+   return super.onOptionsItemSelected(item);
     }
-    @Override
-    public void onBackPressed() {
-        Utils.showInfoDialog_help_ro_vw(this,
-                "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar in limba engleza si rusa.");
-        //this.finish();
-    }
+   // @Override
+//    public void onBackPressed() {
+//        Utils.showInfoDialog_help_ro_vw(this,
+//                "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar in limba engleza si rusa.");
+//        //this.finish();
+//    }
 
 
     public void setReceivedScientist(Scientistvw receivedScientist) {
