@@ -126,7 +126,7 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
         int id = item.getItemId();
 
         if (id==R.id.action_edit_med){
-            Utils.sendScientistToActivity(this,receivedScientist, help_medicament.class);
+            Utils.sendScientistToActivity(this,receivedScientist, help_medicament_2.class);
             finish();
             return true;
 
@@ -255,6 +255,7 @@ public class DetailActivity_cl_med extends AppCompatActivity  {
 
         //-----------------------------
 
+        //Rezolva dupa acest exemplu
         // Register the onBackPressed callback
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override

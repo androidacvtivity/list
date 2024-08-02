@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bancusoft.list.Helpers.Utils;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Views.med.CL_medicament_Activity;
-import com.bancusoft.list.Views.med.help_medicament;
+import com.bancusoft.list.Views.med.help_medicament_2;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
@@ -76,7 +76,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
 
-help_cl_med.setOnClickListener(v -> Utils.openActivity(DashboardActivity.this, help_medicament.class));
+help_cl_med.setOnClickListener(v -> Utils.openActivity(DashboardActivity.this, help_medicament_2.class));
 
 
 

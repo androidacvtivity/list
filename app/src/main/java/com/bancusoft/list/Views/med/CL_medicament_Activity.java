@@ -206,7 +206,7 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
         int id = item.getItemId();
 
         if (id==R.id.action_new_med){
-            Utils.sendScientistToActivity(this,receivedScientist, help_medicament.class);
+            Utils.sendScientistToActivity(this,receivedScientist, help_medicament_2.class);
             finish();
             return true;
 

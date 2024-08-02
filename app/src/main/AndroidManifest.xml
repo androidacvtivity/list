@@ -248,6 +248,12 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name="com.bancusoft.list.Views.med.help_medicament_2"
+            android:label="Help"
+            android:parentActivityName="com.bancusoft.list.Views.DashboardActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name="com.bancusoft.list.Views.med.help_medicament"
             android:label="Help"
             android:parentActivityName="com.bancusoft.list.Views.DashboardActivity"

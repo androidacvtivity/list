@@ -1,14 +1,15 @@
 package com.bancusoft.list.Views.med;
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ru_med_3;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.widget.Toolbar;
-
 import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Scientist;
 import com.bancusoft.list.Views.BaseActivity;
@@ -27,16 +28,25 @@ public class help_medicament_ru extends BaseActivity{
         setSupportActionBar(toolbar);
 
         //findViewById(R.id.mBackArrowh).setOnClickListener(v -> finish());
-        findViewById(R.id.mBackArrowh_ru_med).setOnClickListener( v -> Utils.showInfoDialog_help_ru_med(this,
-                "Atenție", "Вы уверены, что хотите выйти? В справочнике к классификатору препаратов есть перевод на английский и румынский  языки.") );
-    }
+        findViewById(R.id.mBackArrowh_ru_med).setOnClickListener( v -> Utils_2.showInfoDialog_help_ru_med_3(this,
+                "Внимание !!!", "Вы уверены, что хотите выйти? В справочнике к классификатору препаратов есть перевод на английский и румынский  языки.") );
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Show the info dialog
+                showInfoDialog_help_ru_med_3(help_medicament_ru.this,
+                        "Внимание !!!", "Вы уверены, что хотите выйти? В справочнике к классификатору препаратов есть перевод на английский и румынский  языки.");
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
 
 
-    @Override
-    public void onBackPressed() {
-        Utils.showInfoDialog_help_ru_med(this,
-                "Atenție", "Вы уверены, что хотите выйти? В справочнике к классификатору препаратов есть перевод на английский и румынский  языки.");
-        //this.finish();
+
+
     }
 
 
@@ -63,7 +73,7 @@ public class help_medicament_ru extends BaseActivity{
         int id = item.getItemId();
 
         if (id==R.id.rolang_med){
-            Utils.sendScientistToActivity(this,receivedScientist, help_medicament.class);
+            Utils.sendScientistToActivity(this,receivedScientist, help_medicament_2.class);
             finish();
             return true;
 
