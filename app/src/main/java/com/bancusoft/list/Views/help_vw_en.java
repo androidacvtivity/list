@@ -1,11 +1,17 @@
 package com.bancusoft.list.Views;
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_en_vw_3;
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ro_vw_3;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.Retrofit.Scientistvw;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bancusoft.list.Helpers.Utils;
@@ -26,16 +32,30 @@ public class help_vw_en extends BaseActivity{
 
 //        findViewById(R.id.mBackArrowh_en).setOnClickListener(v -> finish());
 
-        findViewById(R.id.mBackArrowh_en).setOnClickListener( v -> Utils.showInfoDialog_help_en_vw(this,
+        findViewById(R.id.mBackArrowh_en).setOnClickListener( v -> showInfoDialog_help_en_vw_3(this,
                 "Attention!", "Are you sure you want to exit? We have translate help in romanian and russian.") );
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Show the info dialog
+                showInfoDialog_help_en_vw_3(help_vw_en.this,
+                        "Attention", "Are you sure you want to exit? We have translate help in romanian and russian.");
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
-    @Override
-    public void onBackPressed() {
-
-        Utils.showInfoDialog_help_en_vw(this,
-                "Attention!", "Are you sure you want to exit? We have translate help in romanian and russian.");
-    }
+//    @Override
+//    public void onBackPressed() {
+//
+//        Utils.showInfoDialog_help_en_vw(this,
+//                "Attention!", "Are you sure you want to exit? We have translate help in romanian and russian.");
+//    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
