@@ -231,6 +231,11 @@ public class DetailActivityvw extends AppCompatActivity  {
         // Add the callback to the dispatcher
         getOnBackPressedDispatcher().addCallback(this, callback);
 
+        //------------------------------------------------------------------------
+
+
+
+
 //-----------------------------
 
         initializeWidgets();
