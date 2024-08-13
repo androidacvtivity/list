@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bancusoft.list.Helpers.Utils;
+import com.bancusoft.list.Helpers.ViewUtils;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Cl_caem;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -26,11 +28,8 @@ public class DetailActivityclcaem extends AppCompatActivity {
 
     //Let's define our instance fields
     private TextView CODUL_TV_CAEM ,DENUMIRE_TV_caem;
-
     private Cl_caem receivedCl_caem;
-
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
-
 
     /**
      * Let's initialize our widgets
@@ -38,34 +37,43 @@ public class DetailActivityclcaem extends AppCompatActivity {
     private void initializeWidgets(){
         CODUL_TV_CAEM = findViewById(R.id.CODUL_TV_CAEM);
         DENUMIRE_TV_caem = findViewById(R.id.DENUMIRE_TV_caem);
-
-
-
         mCollapsingToolbarLayout=findViewById(R.id.mCollapsingToolbarLayoutclcaem);
     }
 
 
+//I modify you code I use
+// public class ViewUtils {
+//    public static void setTextSafely(TextView textView, String text) {
+//        if (textView != null && text != null) {
+//            textView.setText(text.trim());
+//        }
+//    }
+//}
+    //What do you think ?
 
-    /**
-     * We will now receive and show our data to their appropriate views.
-     */
-    private void receiveAndShowData(){
+    private void receiveAndShowData() {
+        // Retrieve the Cl_caem object from the Intent
+        Cl_caem receivedCl_caem = Utils.receiveCl_caem(getIntent(), DetailActivityclcaem.this);
 
-        receivedCl_caem  = Utils.receiveCl_caem(getIntent(),DetailActivityclcaem.this);
+        // Check if the received object is not null
+        if (receivedCl_caem != null) {
+            // Update the UI components with data from the received Cl_caem object, or set to empty string if null
 
-        if(receivedCl_caem != null){
-            CODUL_TV_CAEM.setText(receivedCl_caem.getCODUL());
-            DENUMIRE_TV_caem.setText(receivedCl_caem.getDENUMIRE());
-
-
-
-
-            mCollapsingToolbarLayout.setTitle(receivedCl_caem.getCODUL());
-
+            ViewUtils.setTextSafely(CODUL_TV_CAEM, receivedCl_caem.getCODUL());
+            ViewUtils.setTextSafely(DENUMIRE_TV_caem, receivedCl_caem.getDENUMIRE());
+            mCollapsingToolbarLayout.setTitle(receivedCl_caem.getCODUL() != null ? receivedCl_caem.getCODUL() : "");
+            mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
+        } else {
+            // Handle the case where receivedCl_caem is null (optional)
+            Log.e("DetailActivity", "Received Cl_caem is null");
+            // Setting empty strings to TextViews if receivedCl_caem is null
+            CODUL_TV_CAEM.setText("");
+            DENUMIRE_TV_caem.setText("");
+            mCollapsingToolbarLayout.setTitle("");
             mCollapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
         }
-
     }
+
 
     /**
      * Let's inflate our menu for the detail page
@@ -83,15 +91,12 @@ public class DetailActivityclcaem extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-
-
-        int id = item.getItemId();
+    int id = item.getItemId();
 
         if (id==R.id.action_edit_caem){
             Utils.sendCl_caemToActivity(this,receivedCl_caem,help_vw.class);
                 finish();
                 return true;
-
         }
         else
 
@@ -99,19 +104,14 @@ public class DetailActivityclcaem extends AppCompatActivity {
             Utils.sendCl_caemToActivity(this,receivedCl_caem,help_vw_en.class);
                 finish();
                 return true;
-
         }
         else
-
-
         if (id==R.id.action_edit_ru_caem){
             Utils.sendCl_caemToActivity(this,receivedCl_caem,help_vw_ru.class);
                 finish();
                 return true;
-
         }
         else
-
 
         if (id == android.R.id.home){
 
@@ -123,26 +123,15 @@ public class DetailActivityclcaem extends AppCompatActivity {
             return true;
 
         }
-
-
         else
         if (id == R.id.video3_caem){
 
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(com.bancusoft.list.Helpers.Utils.youtube_level_stat));
-
             startActivity(browserIntent);
             return true;
-
-
         }
-
-
-
         return super.onOptionsItemSelected(item);
     }
-
-
-
     /**
      * Let's once again override the attachBaseContext. We do this for our
      * Calligraphy library
@@ -152,18 +141,7 @@ public class DetailActivityclcaem extends AppCompatActivity {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    /**
-     * Let's finish the current activity when back button is pressed
-     */
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, ScientistsActivityclcaem.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
-
+//Not, only in this case
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,7 +150,7 @@ public class DetailActivityclcaem extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Intent intent = new Intent(DetailActivityclcaem.this, ScientistsActivitycucaem.class);
+                Intent intent = new Intent(DetailActivityclcaem.this, ScientistsActivityclcaem.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 finish();
                 startActivity(intent);
@@ -186,6 +164,8 @@ public class DetailActivityclcaem extends AppCompatActivity {
         Button mBtnShare = findViewById(R.id.btnShare_caem);
 
         mBtnShare.setOnClickListener(view -> {
+
+            //Modify in this case same
             String s_CODUL_TV_CAEM = CODUL_TV_CAEM.getText().toString();
             String s_DENUMIRE_TV_caem = DENUMIRE_TV_caem.getText().toString();
 

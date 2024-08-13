@@ -8,4 +8,8 @@ public class ViewUtils {
             textView.setText(text.trim());
         }
     }
+
+    public static String getTextSafely(TextView textView) {
+        return textView != null ? textView.getText().toString() : "";
+    }
 }

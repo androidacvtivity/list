@@ -153,18 +153,6 @@ public class DetailActivitycaem extends AppCompatActivity {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    /**
-     * Let's finish the current activity when back button is pressed
-     */
-//    @Override
-//    public void onBackPressed() {
-//        Intent intent;
-//        intent = new Intent(this, ScientistsActivitycucaem.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        finish();
-//        startActivity(intent);
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -206,8 +194,6 @@ public class DetailActivitycaem extends AppCompatActivity {
 
             startActivity(Intent.createChooser(sharingIntent, "Share text via"));
         });
-
-
 
         initializeWidgets();
         receiveAndShowData();
