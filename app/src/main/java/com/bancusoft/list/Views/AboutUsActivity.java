@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -119,11 +121,6 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
 //--------------------------------------------------------------------------
-
-
-
-
-
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,6 +129,20 @@ public class AboutUsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         findViewById(R.id.mBackArrow).setOnClickListener(v -> finish());
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(AboutUsActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
 
 
         // Find the TextView that should open the disclaimer content
@@ -175,15 +186,6 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, DashboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-
-    }
 
     public void setReceivedScientist() {
     }
