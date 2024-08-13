@@ -1,12 +1,18 @@
 package com.bancusoft.list.Views;
 
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_en_vw_3;
+import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ru_vw_3;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bancusoft.list.Helpers.Utils_2;
 import com.bancusoft.list.Retrofit.Scientistvw;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bancusoft.list.Helpers.Utils;
@@ -27,17 +33,32 @@ public class help_vw_ru extends BaseActivity{
 
         //findViewById(R.id.mBackArrowh_ru).setOnClickListener(v -> finish());
 
-        findViewById(R.id.mBackArrowh_ru).setOnClickListener( v -> Utils.showInfoDialog_help_ru_vw(this, "Внимание.", "Вы уверены что хотите выйти? У нас есть перевод руководства о программе на румынском и на английском.") );
+        findViewById(R.id.mBackArrowh_ru).setOnClickListener( v -> showInfoDialog_help_ru_vw_3(this, "Внимание.", "Вы уверены что хотите выйти? У нас есть перевод руководства о программе на румынском и на английском.") );
+
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Show the info dialog
+                showInfoDialog_help_ru_vw_3(help_vw_ru.this,
+                        "Внимание", "Вы уверены что хотите выйти? У нас есть перевод руководства о программе на румынском и на английском.");
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
 
 
 
-    @Override
-    public void onBackPressed() {
-
-        Utils.showInfoDialog_help_ru_vw(this, "Внимание.", "Вы уверены что хотите выйти? У нас есть перевод руководства о программе на румынском и на английском.");
-    }
+//    @Override
+//    public void onBackPressed() {
+//
+//        Utils.showInfoDialog_help_ru_vw(this, "Внимание.", "Вы уверены что хотите выйти? У нас есть перевод руководства о программе на румынском и на английском.");
+//    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

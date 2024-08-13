@@ -1,7 +1,6 @@
 package com.bancusoft.list.Views;
 import static com.bancusoft.list.R.id.TextView_1;
 import static com.bancusoft.list.R.string.date_ro1;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,8 +9,9 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.TextView;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import com.bancusoft.list.Helpers.Utils;
@@ -19,7 +19,7 @@ import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Scientistsvw_ro;
 
 public class help_vw_ro  extends BaseActivity{
-    private WebView webView;
+
     private Scientistsvw_ro receivedScientist;
 
     public help_vw_ro() {
@@ -31,6 +31,9 @@ public class help_vw_ro  extends BaseActivity{
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.helpvw_ro);
+
+
+
 
         // Get the TextView
         TextView textView = findViewById(TextView_1);
@@ -82,12 +85,19 @@ public class help_vw_ro  extends BaseActivity{
         findViewById(R.id.mBackArrowh_vw_ro).setOnClickListener(v ->  Utils.openActivity(help_vw_ro.this,DashboardActivity.class));
 
 
-    }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Utils.openActivity(help_vw_ro.this, DashboardActivity.class);
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Show the info dialog
+                Utils.openActivity(help_vw_ro.this, DashboardActivity.class);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
 
     }
 

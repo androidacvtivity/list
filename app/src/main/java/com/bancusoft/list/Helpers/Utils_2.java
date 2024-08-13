@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Scientist;
 import com.bancusoft.list.Views.DashboardActivity;
+import com.bancusoft.list.Views.help_vw;
 import com.bancusoft.list.Views.help_vw_en;
 import com.bancusoft.list.Views.help_vw_ru;
 import com.bancusoft.list.Views.med.help_medicament_2;
@@ -144,17 +145,91 @@ public class Utils_2 {
                 .show();
     }
 //--------------------------------------------------------------------------
-//    public static void showInfoDialog_help_ro_vw(final AppCompatActivity activity, String title,
+public static void showInfoDialog_help_en_vw_3(final AppCompatActivity activity, String title, String message) {
+    new AlertDialog.Builder(activity)
+            .setTitle(title)
+            .setIcon(R.drawable.m_info)
+            .setMessage(message)
+
+                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_vw.class))
+                .setNeutralButton("Dashboard", (dialog, which) -> openActivity(activity, DashboardActivity.class))
+                .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_vw_ru.class))
+
+            .setOnDismissListener(dialog -> {
+                new AlertDialog.Builder(activity)
+                        .setTitle("Confirm Exit")
+                        .setMessage("Are you sure you want to exit?")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                activity.finish();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .show();
+            })
+            .show();
+}
+
+
+
+
+
+//---------------------------------------------------------------------------
+
+
+    //--------------------------------------------------------------------------
+    public static void showInfoDialog_help_ru_vw_3(final AppCompatActivity activity, String title, String message) {
+        new AlertDialog.Builder(activity)
+                .setTitle(title)
+                .setIcon(R.drawable.m_info)
+                .setMessage(message)
+
+                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_vw.class))
+                .setNeutralButton("В начало", (dialog, which) -> openActivity(activity, DashboardActivity.class))
+                .setNegativeButton("en", (dialog, which) -> openActivity(activity, help_vw_en.class))
+
+                .setOnDismissListener(dialog -> {
+                    new AlertDialog.Builder(activity)
+                            .setTitle("Confirm Exit")
+                            .setMessage("Are you sure you want to exit?")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    activity.finish();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, null)
+                            .show();
+                })
+                .show();
+    }
+    //---------------------------------------------------------------------------
+
+    /**
+     * This method will allow us show an Info dialog anywhere in our app.
+     */
+//    public static void showInfoDialog_help_ru_vw(final AppCompatActivity activity, String title,
 //                                                 String message) {
+//
+//
 //        new AlertDialog.Builder(activity)
+//
 //                .setTitle(title)
 //                .setIcon(R.drawable.m_info)
 //                .setMessage(message)
-//                .setPositiveButton("en", (dialog, which) -> openActivity(activity, help_vw_en.class))
-//                .setNeutralButton("La inceput", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-//                .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_vw_ru.class))
+//                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_vw.class))
+//                .setNeutralButton("В начало", (dialog, which) -> openActivity(activity, DashboardActivity.class))
+//                .setNegativeButton("en", (dialog, which) -> openActivity(activity, help_vw_en.class))
+//
 //                .show();
 //    }
+
+
+
+
+
+
+
+
 
 
     public static void openActivity(AppCompatActivity activity, Class<?> cls) {

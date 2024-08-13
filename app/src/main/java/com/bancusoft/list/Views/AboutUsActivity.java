@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bancusoft.list.R;
 import com.bancusoft.list.Views.structbns.Full_description;
 public class AboutUsActivity extends AppCompatActivity {
@@ -118,12 +122,67 @@ public class AboutUsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//--------------------------------------------------------------------------
 
+//    public void onEmailImageViewClick(View view) {
+//        // Create an Intent to open an email client
+//        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//
+//        // Set the data to mailto with the email address
+//        intent.setData(Uri.parse("mailto:bancusoft@gmail.com"));
+//
+//        // Specify the Gmail package
+//        intent.setPackage("com.google.android.gm");
+//        // Add additional info like subject, body, etc. (optional)
+//        // intent.putExtra(Intent.EXTRA_SUBJECT, "Your Subject Here");
+//        // intent.putExtra(Intent.EXTRA_TEXT, "Body of the email");
+//
+//        // Verify there is an app to handle the intent
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        } else {
+//            // Handle the case where no email app is available
+//            // For example, you can show a Toast or Log
+//            Toast.makeText(this, "No email app available", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
+    public void onEmailImageViewClick(View view) {
+        // Create an Intent to send an email
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("plain/text"); // Set the type to plain text
 
+        // Set the recipient emails
+        String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
 
+        // Add subject and body to the email
+        intent.putExtra(Intent.EXTRA_SUBJECT, "About Stat Level");
+        intent.putExtra(Intent.EXTRA_TEXT, "Continue the thought");
 
+        // Specify the Gmail package
+        intent.setPackage("com.google.android.gm");
+
+        try {
+            // Try to start the Gmail app
+            startActivity(intent);
+        } catch (Exception e) {
+            // If Gmail is not available, fall back to a generic email chooser
+            Intent fallbackIntent = new Intent(Intent.ACTION_SENDTO);
+            fallbackIntent.setData(Uri.parse("mailto:")); // Using ACTION_SENDTO requires a mailto URI
+            fallbackIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
+            fallbackIntent.putExtra(Intent.EXTRA_SUBJECT, "About Stat Level");
+            fallbackIntent.putExtra(Intent.EXTRA_TEXT, "Continue the thought");
+
+            try {
+                startActivity(Intent.createChooser(fallbackIntent, "Choose Email Client"));
+            } catch (Exception ex) {
+                // If no email app is available, show a toast
+                Toast.makeText(view.getContext(), "No email app available", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    //--------------------------------------------------------------------------
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,6 +191,20 @@ public class AboutUsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         findViewById(R.id.mBackArrow).setOnClickListener(v -> finish());
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(AboutUsActivity.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
 
 
         // Find the TextView that should open the disclaimer content
@@ -175,15 +248,6 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, DashboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
-
-    }
 
     public void setReceivedScientist() {
     }
