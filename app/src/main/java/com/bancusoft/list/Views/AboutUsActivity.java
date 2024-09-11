@@ -93,22 +93,16 @@ public class AboutUsActivity extends AppCompatActivity {
         builder.setTitle("Permission Denied");
         builder.setMessage("You have denied the permission to make phone calls. If you need assistance, please contact our support team via email.");
 
-        builder.setPositiveButton("Email Support", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Open an email client to compose an email to support
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "bancusoft@google.com", null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Support Request");
-                startActivity(Intent.createChooser(emailIntent, "Choose an email client"));
-            }
+        builder.setPositiveButton("Email Support", (dialog, which) -> {
+            // Open an email client to compose an email to support
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "bancusoft@google.com", null));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Support Request");
+            startActivity(Intent.createChooser(emailIntent, "Choose an email client"));
         });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Handle cancel action
-                dialog.dismiss();
-            }
+        builder.setNegativeButton("Cancel", (dialog, which) -> {
+            // Handle cancel action
+            dialog.dismiss();
         });
 
         builder.show();
@@ -123,28 +117,6 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
 
-//    public void onEmailImageViewClick(View view) {
-//        // Create an Intent to open an email client
-//        Intent intent = new Intent(Intent.ACTION_SENDTO);
-//
-//        // Set the data to mailto with the email address
-//        intent.setData(Uri.parse("mailto:bancusoft@gmail.com"));
-//
-//        // Specify the Gmail package
-//        intent.setPackage("com.google.android.gm");
-//        // Add additional info like subject, body, etc. (optional)
-//        // intent.putExtra(Intent.EXTRA_SUBJECT, "Your Subject Here");
-//        // intent.putExtra(Intent.EXTRA_TEXT, "Body of the email");
-//
-//        // Verify there is an app to handle the intent
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        } else {
-//            // Handle the case where no email app is available
-//            // For example, you can show a Toast or Log
-//            Toast.makeText(this, "No email app available", Toast.LENGTH_SHORT).show();
-//        }
-//    }
 
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
@@ -209,12 +181,9 @@ public class AboutUsActivity extends AppCompatActivity {
 
         // Find the TextView that should open the disclaimer content
         TextView disclaimerTextView = findViewById(R.id.disclaimer_layout);
-        disclaimerTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AboutUsActivity.this, Full_description.class);
-                startActivity(intent);
-            }
+        disclaimerTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(AboutUsActivity.this, Full_description.class);
+            startActivity(intent);
         });
     }
 

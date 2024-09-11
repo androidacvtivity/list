@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.databinding:databinding-adapters:8.2.2@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$USER_HOME$/StudioProjects/list/caches/transforms-3/45e6349a6392594c84e69d8184e383fa/transformed/databinding-adapters-8.2.2/res" />
-      <root url="file://$USER_HOME$/StudioProjects/list/caches/transforms-3/45e6349a6392594c84e69d8184e383fa/transformed/databinding-adapters-8.2.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/StudioProjects/list/caches/transforms-3/45e6349a6392594c84e69d8184e383fa/transformed/databinding-adapters-8.2.2/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/45e6349a6392594c84e69d8184e383fa/transformed/databinding-adapters-8.2.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/45e6349a6392594c84e69d8184e383fa/transformed/databinding-adapters-8.2.2/res" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/45e6349a6392594c84e69d8184e383fa/transformed/databinding-adapters-8.2.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/StudioProjects/list/caches/modules-2/files-2.1/androidx.databinding/databinding-adapters/8.2.2/40da56222ef1883f2817c6e296d196fbb426e2c0/databinding-adapters-8.2.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/modules-2/files-2.1/androidx.databinding/databinding-adapters/8.2.2/40da56222ef1883f2817c6e296d196fbb426e2c0/databinding-adapters-8.2.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
