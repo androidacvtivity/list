@@ -49,7 +49,7 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
     private Boolean isScrolling = false;
     private int currentScientists, totalScientists, scrolledOutScientists;
     private ProgressBar mProgressBar;
-    private Scientistsvw_ro receivedScientist;
+
     /**
      * We initialize our widgets
      */
@@ -106,7 +106,7 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
                 Log.d("RETROFIT", "RESPONSE : " + response.body().getResultvw_ro());
                 currentPageScientists = response.body().getResultvw_ro();
 
-                if (currentPageScientists != null && currentPageScientists.size() > 0) {
+                if (currentPageScientists != null && !currentPageScientists.isEmpty()) {
                     if (action.equalsIgnoreCase("GET_PAGINATED_SEARCHVW_RO")) {
                         allPagesScientists.clear();
                     }
@@ -270,12 +270,12 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
     }
 
     @Override
-    public boolean onMenuItemActionExpand(MenuItem item) {
+    public boolean onMenuItemActionExpand(@NonNull MenuItem item) {
         return false;
     }
 
     @Override
-    public boolean onMenuItemActionCollapse(MenuItem item) {
+    public boolean onMenuItemActionCollapse(@NonNull MenuItem item) {
         return false;
     }
 
@@ -326,6 +326,5 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
     }
 
     public void setReceivedScientist(Scientistsvw_ro receivedScientist) {
-        this.receivedScientist = receivedScientist;
     }
 }
