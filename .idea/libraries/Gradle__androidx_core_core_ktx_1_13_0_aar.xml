@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.core:core-ktx:1.13.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/613981c0dcbc228af12ae4f647504c8f/transformed/jetified-core-ktx-1.13.0/res" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/613981c0dcbc228af12ae4f647504c8f/transformed/jetified-core-ktx-1.13.0/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/613981c0dcbc228af12ae4f647504c8f/transformed/jetified-core-ktx-1.13.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/5c1cc8d85fa790dcd9f68a2444ea3daa/transformed/jetified-core-ktx-1.13.0/res" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/5c1cc8d85fa790dcd9f68a2444ea3daa/transformed/jetified-core-ktx-1.13.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/5c1cc8d85fa790dcd9f68a2444ea3daa/transformed/jetified-core-ktx-1.13.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

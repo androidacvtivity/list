@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.fragment:fragment:1.5.4@aar" external-system-id="GRADLE">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/73b3ed4d31d49c585ad4326f3a8ad28b/transformed/fragment-1.5.4/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/14159060809ec039e59443717bed714c/transformed/fragment-1.5.4/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/73b3ed4d31d49c585ad4326f3a8ad28b/transformed/fragment-1.5.4/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/73b3ed4d31d49c585ad4326f3a8ad28b/transformed/fragment-1.5.4/AndroidManifest.xml" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/73b3ed4d31d49c585ad4326f3a8ad28b/transformed/fragment-1.5.4/res" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/14159060809ec039e59443717bed714c/transformed/fragment-1.5.4/res" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/14159060809ec039e59443717bed714c/transformed/fragment-1.5.4/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/14159060809ec039e59443717bed714c/transformed/fragment-1.5.4/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
