@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.viewpager2:viewpager2:1.1.0-beta02@aar" external-system-id="GRADLE">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/955456f4f26cb55d1c946f96d7308c7a/transformed/jetified-viewpager2-1.1.0-beta02/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/a7c1ab204799871652a5acae5a18905f/transformed/jetified-viewpager2-1.1.0-beta02/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/955456f4f26cb55d1c946f96d7308c7a/transformed/jetified-viewpager2-1.1.0-beta02/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/955456f4f26cb55d1c946f96d7308c7a/transformed/jetified-viewpager2-1.1.0-beta02/res" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-3/955456f4f26cb55d1c946f96d7308c7a/transformed/jetified-viewpager2-1.1.0-beta02/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/a7c1ab204799871652a5acae5a18905f/transformed/jetified-viewpager2-1.1.0-beta02/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/a7c1ab204799871652a5acae5a18905f/transformed/jetified-viewpager2-1.1.0-beta02/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/a7c1ab204799871652a5acae5a18905f/transformed/jetified-viewpager2-1.1.0-beta02/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
