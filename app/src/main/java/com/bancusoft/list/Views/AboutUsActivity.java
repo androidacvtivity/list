@@ -1,11 +1,16 @@
 package com.bancusoft.list.Views;
+import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StatFs;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +28,9 @@ import android.widget.Toast;
 
 import com.bancusoft.list.R;
 import com.bancusoft.list.Views.structbns.Full_description;
+
+import java.util.TimeZone;
+
 public class AboutUsActivity extends AppCompatActivity {
     public void openMapsLink(View view) {
         String url = "https://www.google.com/maps/place/Chi%C8%99in%C4%83u,+Moldova/@46.9999566,28.7757764,12z/data=!3m1!4b1!4m6!3m5!1s0x40c97c3628b769a1:0x37d1d6305749dd3c!8m2!3d47.0104529!4d28.8638102!16zL20vMGZuNzc?authuser=0";
@@ -120,8 +128,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
 
 
-
-
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -131,18 +137,53 @@ public class AboutUsActivity extends AppCompatActivity {
         String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);
 
-        // Retrieve the Android version, device model, and manufacturer
+        // Retrieve the Android version, device model, manufacturer, etc.
         String androidVersion = Build.VERSION.RELEASE;
         String deviceModel = Build.MODEL;
         String deviceManufacturer = Build.MANUFACTURER;
+        String buildNumber = Build.DISPLAY;
+        String cpuArchitecture = Build.SUPPORTED_ABIS[0]; // First ABI is the preferred one
+        String timeZone = TimeZone.getDefault().getID(); // Get the current time zone
+        String deviceBrand = Build.BRAND;
+        String host = Build.HOST;
+        String bootloader = Build.BOOTLOADER;
+
+        // Retrieve screen resolution
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        view.getContext().getResources().getDisplayMetrics();
+        int screenWidth = displayMetrics.widthPixels;
+        int screenHeight = displayMetrics.heightPixels;
+
+        // Retrieve available and total internal storage
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+        long totalStorage = statFs.getTotalBytes();
+        long availableStorage = statFs.getAvailableBytes();
+
+        // Retrieve available RAM
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        ActivityManager activityManager = (ActivityManager) view.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        activityManager.getMemoryInfo(memoryInfo);
+        long totalRam = memoryInfo.totalMem;
+        long availableRam = memoryInfo.availMem;
 
         // Add subject and body to the email with additional device information
-        String emailBody = "Continue the thought\n\n"
-                + "Customer Android Version: " + androidVersion + "\n"
+        String emailBody = "Device Information:\n"
+                + "Android Version: " + androidVersion + "\n"
                 + "Device Model: " + deviceModel + "\n"
-                + "Manufacturer: " + deviceManufacturer;
+                + "Manufacturer: " + deviceManufacturer + "\n"
+                + "Build Number: " + buildNumber + "\n"
+                + "Brand: " + deviceBrand + "\n"
+                + "CPU Architecture: " + cpuArchitecture + "\n"
+                + "Time Zone: " + timeZone + "\n"
+                + "Host: " + host + "\n"
+                + "Bootloader: " + bootloader + "\n"
+                + "Screen Resolution: " + screenWidth + "x" + screenHeight + " pixels\n"
+                + "Total Internal Storage: " + totalStorage / (1024 * 1024) + " MB\n"
+                + "Available Internal Storage: " + availableStorage / (1024 * 1024) + " MB\n"
+                + "Total RAM: " + totalRam / (1024 * 1024) + " MB\n"
+                + "Available RAM: " + availableRam / (1024 * 1024) + " MB";
 
-        // Set the email subject with the device model included
+        // Set the email subject and body
         String emailSubject = "About Stat Level - Device: " + deviceModel;
         intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
         intent.putExtra(Intent.EXTRA_TEXT, emailBody);
@@ -169,7 +210,6 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
 
