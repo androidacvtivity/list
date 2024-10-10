@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -118,6 +119,9 @@ public class AboutUsActivity extends AppCompatActivity {
 
 
 
+
+
+
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -127,9 +131,21 @@ public class AboutUsActivity extends AppCompatActivity {
         String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);
 
-        // Add subject and body to the email
-        intent.putExtra(Intent.EXTRA_SUBJECT, "About Stat Level");
-        intent.putExtra(Intent.EXTRA_TEXT, "Continue the thought");
+        // Retrieve the Android version, device model, and manufacturer
+        String androidVersion = Build.VERSION.RELEASE;
+        String deviceModel = Build.MODEL;
+        String deviceManufacturer = Build.MANUFACTURER;
+
+        // Add subject and body to the email with additional device information
+        String emailBody = "Continue the thought\n\n"
+                + "Customer Android Version: " + androidVersion + "\n"
+                + "Device Model: " + deviceModel + "\n"
+                + "Manufacturer: " + deviceManufacturer;
+
+        // Set the email subject with the device model included
+        String emailSubject = "About Stat Level - Device: " + deviceModel;
+        intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+        intent.putExtra(Intent.EXTRA_TEXT, emailBody);
 
         // Specify the Gmail package
         intent.setPackage("com.google.android.gm");
@@ -142,8 +158,8 @@ public class AboutUsActivity extends AppCompatActivity {
             Intent fallbackIntent = new Intent(Intent.ACTION_SENDTO);
             fallbackIntent.setData(Uri.parse("mailto:")); // Using ACTION_SENDTO requires a mailto URI
             fallbackIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
-            fallbackIntent.putExtra(Intent.EXTRA_SUBJECT, "About Stat Level");
-            fallbackIntent.putExtra(Intent.EXTRA_TEXT, "Continue the thought");
+            fallbackIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+            fallbackIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
 
             try {
                 startActivity(Intent.createChooser(fallbackIntent, "Choose Email Client"));
@@ -153,6 +169,10 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+
 
     //--------------------------------------------------------------------------
     @Override
