@@ -2,7 +2,6 @@ package com.bancusoft.list.Views;
 import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -11,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,25 +38,28 @@ public class AboutUsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void onMImageViewClick(View view) {
         // LinkedIn profile URL
         String linkedinProfileUrl = getString(R.string.http_linkedin);
 
-        // Create an intent to open the URL in the Chrome browser
+        // Create an intent to open the URL in the LinkedIn app
         Intent chromeIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedinProfileUrl));
-        chromeIntent.setPackage("com.linkedin.android"); // Package name for Chrome browser
+        chromeIntent.setPackage("com.linkedin.android"); // Package name for LinkedIn app
 
         try {
-            // Open the URL in Chrome if it's installed
+            // Open the URL in LinkedIn if it's installed
             startActivity(chromeIntent);
         } catch (ActivityNotFoundException e) {
-            // Chrome is not installed or not available, handle the exception
-            e.printStackTrace();
+            // Log error and fallback to WebView
+            Log.e("onMImageViewClick", "LinkedIn app not available, opening URL in WebView", e);
 
             // Fall back to opening the URL in a WebView within your app
             openLinkInWebView(linkedinProfileUrl);
         }
     }
+
+    //---------------------------------------------------------------------
 
     private void openLinkInWebView(String url) {
         Intent webViewIntent = new Intent(this, WebViewActivity.class);
