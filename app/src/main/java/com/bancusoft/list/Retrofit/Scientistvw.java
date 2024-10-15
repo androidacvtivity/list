@@ -49,13 +49,10 @@ public class Scientistvw  implements Serializable{
     @SerializedName("DATA_REG_VW")
     private final String DATA_REG_VW;
 
-    @SerializedName("personalinfo")
-    private final String personalinfo;
-
     @SerializedName("act")
-    private String act;
+    private final String act;
 
-    public Scientistvw(String den_com_vw, String idno_vw, String adresa_vw, String forma_org_vw, String list_cond_vw, String lista_fond_vw, String gen_act_ne_lic_vw, String gen_act_lic_vw, String statutul_vw, String data_reg_vw, String personalinfo) {
+    public Scientistvw(String den_com_vw, String idno_vw, String adresa_vw, String forma_org_vw, String list_cond_vw, String lista_fond_vw, String gen_act_ne_lic_vw, String gen_act_lic_vw, String statutul_vw, String data_reg_vw, String act) {
         DEN_COM_VW = den_com_vw;
         IDNO_VW = idno_vw;
         ADRESA_VW = adresa_vw;
@@ -66,7 +63,7 @@ public class Scientistvw  implements Serializable{
         GEN_ACT_LIC_VW = gen_act_lic_vw;
         STATUTUL_VW = statutul_vw;
         DATA_REG_VW = data_reg_vw;
-        this.personalinfo = personalinfo;
+        this.act = act;
     }
 
 
@@ -80,11 +77,6 @@ public class Scientistvw  implements Serializable{
 
         return act;
     }
-
-//    public void setAct(String act) {
-//        this.act =  act;
-//
-//    }
 
 
     public  String getIDNO_VW () {
@@ -139,12 +131,6 @@ public class Scientistvw  implements Serializable{
     public  String getDATA_REG_VWW () {
 
         return DATA_REG_VW;
-    }
-
-    //-----------
-    public  String getPersonalinfo () {
-
-        return personalinfo;
     }
 
     @NonNull

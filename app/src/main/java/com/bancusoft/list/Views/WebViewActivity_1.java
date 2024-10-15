@@ -34,8 +34,6 @@ public class WebViewActivity_1 extends AppCompatActivity {
         if (intent != null && intent.hasExtra("url")) {
             String url = intent.getStringExtra("url");
             // Load the URL within the WebView
-//            assert url != null;
-//            webView.loadUrl(url);
 
             if (url != null) {
                 // Load the URL within the WebView

@@ -9,7 +9,4 @@ public class ViewUtils {
         }
     }
 
-    public static String getTextSafely(TextView textView) {
-        return textView != null ? textView.getText().toString() : "";
-    }
 }

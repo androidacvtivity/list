@@ -28,12 +28,6 @@ import com.bancusoft.list.Retrofit.Scientistsvw_ro;
 import com.bancusoft.list.Retrofit.Scientistvw;
 import com.bancusoft.list.Views.DashboardActivity;
 
-import com.bancusoft.list.Views.help_vw;
-import com.bancusoft.list.Views.help_vw_en;
-import com.bancusoft.list.Views.help_vw_ru;
-import com.bancusoft.list.Views.med.help_medicament_en;
-import com.bancusoft.list.Views.med.help_medicament_ru;
-
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -128,145 +122,8 @@ public class Utils {
                 .show();
     }
 
-//    /**
-//     * This method will allow us show an Info dialog anywhere in our app.
-//     */
-    public static void showInfoDialog_help_ro_med(final AppCompatActivity activity, String title,
-                                                  String message) {
 
-        new AlertDialog.Builder(activity)
-
-                .setTitle(title)
-                .setIcon(R.drawable.m_info)
-                .setMessage(message)
-                .setPositiveButton("en", (dialog, which) -> openActivity(activity, help_medicament_en.class))
-                .setNeutralButton("La inceput", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-                .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_medicament_ru.class))
-
-                .show();
-
-
-
-    }
-
-    public static void showInfoDialog_help_ro_vw(final AppCompatActivity activity, String title,
-                                              String message) {
-        new AlertDialog.Builder(activity)
-                .setTitle(title)
-                .setIcon(R.drawable.m_info)
-                .setMessage(message)
-                .setPositiveButton("en", (dialog, which) -> openActivity(activity, help_vw_en.class))
-                .setNeutralButton("La inceput", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-                .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_vw_ru.class))
-                .show();
-    }
-
-
-    /**
-     * This method will allow us show an Info dialog anywhere in our app.
-     */
-//    public static void showInfoDialog_help_en_med(final AppCompatActivity activity, String title,
-//                                              String message) {
-//
-//
-//        new AlertDialog.Builder(activity)
-//
-//                .setTitle(title)
-//                .setIcon(R.drawable.m_info)
-//                .setMessage(message)
-//                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_medicament.class))
-//                .setNeutralButton("Dashboard", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-//                .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_medicament_ru.class))
-//
-//                .show();
-//
-//    }
-//
-
-    /**
-     * This method will allow us show an Info dialog anywhere in our app.
-     */
-    public static void showInfoDialog_help_en_vw(final AppCompatActivity activity, String title,
-                                              String message) {
-
-        new AlertDialog.Builder(activity)
-
-                .setTitle(title)
-                .setIcon(R.drawable.m_info)
-                .setMessage(message)
-                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_vw.class))
-                .setNeutralButton("Dashboard", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-                .setNegativeButton("ru", (dialog, which) -> openActivity(activity, help_vw_ru.class))
-
-                .show();
-
-
-    }
-
-    /**
-     * This method will allow us show an Info dialog anywhere in our app.
-     */
-//    public static void showInfoDialog_help_ru(final AppCompatActivity activity, String title,
-//                                              String message) {
-//
-//        new AlertDialog.Builder(activity)
-//
-//                .setTitle(title)
-//                .setIcon(R.drawable.m_info)
-//                .setMessage(message)
-//                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help.class))
-//                .setNeutralButton("В начало", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-//                .setNegativeButton("en", (dialog, which) -> openActivity(activity, helpen.class))
-//
-//                .show();
-//
-//
-//
-//
-//    }
-
-    /**
-     * This method will allow us show an Info dialog anywhere in our app.
-     */
-//    public static void showInfoDialog_help_ru_med(final AppCompatActivity activity, String title,
-//                                              String message) {
-//
-//
-//        new AlertDialog.Builder(activity)
-//
-//                .setTitle(title)
-//                .setIcon(R.drawable.m_info)
-//                .setMessage(message)
-//                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_medicament.class))
-//                .setNeutralButton("В начало", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-//                .setNegativeButton("en", (dialog, which) -> openActivity(activity, help_medicament_en.class))
-//
-//                .show();
-//    }
-//
-//
-
-    /**
-     * This method will allow us show an Info dialog anywhere in our app.
-     */
-    public static void showInfoDialog_help_ru_vw(final AppCompatActivity activity, String title,
-                                              String message) {
-
-
-        new AlertDialog.Builder(activity)
-
-                .setTitle(title)
-                .setIcon(R.drawable.m_info)
-                .setMessage(message)
-                .setPositiveButton("ro", (dialog, which) -> openActivity(activity, help_vw.class))
-                .setNeutralButton("В начало", (dialog, which) -> openActivity(activity, DashboardActivity.class))
-                .setNegativeButton("en", (dialog, which) -> openActivity(activity, help_vw_en.class))
-
-                .show();
-    }
-
-
-     //This method will allow us show a single select dialog where we can select and return a
+    //This method will allow us show a single select dialog where we can select and return a
     // star to an edittext.
 
 
@@ -497,19 +354,6 @@ public class Utils {
         c.startActivity(i);
     }
 
-
-    /**
-     * This method will allow us receive a serialized scientist, deserialize it and return it,.
-     */
-    public  static Scientist receiveScientist(Intent intent,Context c){
-        try {
-            return (Scientist) intent.getSerializableExtra("SCIENTIST_KEY");
-        }catch (Exception e){
-            e.printStackTrace();
-            show(c,"RECEIVING-SCIENTIST ERROR: "+e.getMessage());
-        }
-        return null;
-    }
 
 
 

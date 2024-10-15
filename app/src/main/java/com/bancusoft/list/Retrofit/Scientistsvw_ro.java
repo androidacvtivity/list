@@ -35,7 +35,7 @@ public class Scientistsvw_ro implements Serializable {
     private final String Judet;
 
     @SerializedName("act")
-    private String act;
+    private final String act;
 
     public Scientistsvw_ro(String Nume_firma, String cui, String cod_inmatriculare, String EUID, String stare, String Sediu, String country, String Localitate, String Judet, String act) {
         this.Nume_firma = Nume_firma;
