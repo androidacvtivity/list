@@ -114,12 +114,6 @@ public class help_vw extends BaseActivity{
         }
    return super.onOptionsItemSelected(item);
     }
-   // @Override
-//    public void onBackPressed() {
-//        Utils.showInfoDialog_help_ro_vw(this,
-//                "Atenție", "Sunteți sigutri că vreți sa esiți? Exista traducere la indrumar in limba engleza si rusa.");
-//        //this.finish();
-//    }
 
 
     public void setReceivedScientist(Scientistvw receivedScientist) {

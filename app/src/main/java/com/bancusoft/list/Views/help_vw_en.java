@@ -1,6 +1,6 @@
 package com.bancusoft.list.Views;
 import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_en_vw_3;
-import static com.bancusoft.list.Helpers.Utils_2.showInfoDialog_help_ro_vw_3;
+
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.bancusoft.list.Helpers.Utils_2;
+
 import com.bancusoft.list.Retrofit.Scientistvw;
 
 import androidx.activity.OnBackPressedCallback;
@@ -49,13 +49,6 @@ public class help_vw_en extends BaseActivity{
         getOnBackPressedDispatcher().addCallback(this, callback);
 
     }
-
-//    @Override
-//    public void onBackPressed() {
-//
-//        Utils.showInfoDialog_help_en_vw(this,
-//                "Attention!", "Are you sure you want to exit? We have translate help in romanian and russian.");
-//    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
