@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -141,19 +142,6 @@ public class DetailActivityclservicii extends AppCompatActivity{
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    /**
-     * Let's finish the current activity when back button is pressed
-     */
-
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, ScientistsActivityclservicii.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
-
 
 
     @Override
@@ -189,7 +177,19 @@ public class DetailActivityclservicii extends AppCompatActivity{
             startActivity(Intent.createChooser(sharingIntent, "Share text via"));
         });
 
+//-------------
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent intent = new Intent(DetailActivityclservicii.this, ScientistsActivityclservicii.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        });
+
+//----------------
 
         initializeWidgets();
         receiveAndShowData();
