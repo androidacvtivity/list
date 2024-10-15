@@ -16,11 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import com.bancusoft.list.Helpers.Utils;
 import com.bancusoft.list.R;
-import com.bancusoft.list.Retrofit.Scientistsvw_ro;
 
 public class help_vw_ro  extends BaseActivity{
-
-    private Scientistsvw_ro receivedScientist;
 
     public help_vw_ro() {
     }
@@ -102,7 +99,6 @@ public class help_vw_ro  extends BaseActivity{
     }
 
 
-    public void setReceivedScientist(Scientistsvw_ro receivedScientist) {
-        this.receivedScientist = receivedScientist;
+    public void setReceivedScientist() {
     }
 }

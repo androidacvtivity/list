@@ -25,8 +25,6 @@ public class DetailActivityvw_ro extends AppCompatActivity{
     //Let's define our instance fields
     private TextView Nume_firma, cui, cod_inmatriculare, EUID, stare, Sediu, country, Localitate, Judet, act;
 
-    private Scientistsvw_ro receivedScientist_ro;
-
     private CollapsingToolbarLayout mCollapsingToolbarLayoutvw_ro;
 
     private void initializeWidgets(){
@@ -48,25 +46,11 @@ public class DetailActivityvw_ro extends AppCompatActivity{
 
     private void receiveAndShowData() {
 
-        receivedScientist_ro = Utils.receiveScientistvw_ro(getIntent(), DetailActivityvw_ro.this);
+        Scientistsvw_ro receivedScientist_ro = Utils.receiveScientistvw_ro(getIntent(), DetailActivityvw_ro.this);
 
         if (receivedScientist_ro != null) {
 
-//            //Same
-//            Nume_firma.setText(receivedScientist_ro.getNume_firma().trim());
-//            cui.setText(receivedScientist_ro.getCui().trim());
-//            cod_inmatriculare.setText(receivedScientist_ro.getcod_inmatriculare().trim());
-//            EUID.setText(receivedScientist_ro.getEUID().trim());
-//            stare.setText(receivedScientist_ro.getStare().trim());
-//            Sediu.setText(receivedScientist_ro.getSediu().trim());
-//            country.setText(receivedScientist_ro.getCountry().trim());
-//            Localitate.setText(receivedScientist_ro.getLocalitate().trim());
-//            Judet.setText(receivedScientist_ro.getJudet().trim());
-//            act.setText(receivedScientist_ro.getAct().trim());
-//
-//
-//            mCollapsingToolbarLayoutvw_ro.setTitle(receivedScientist_ro.getCui());
-//            mCollapsingToolbarLayoutvw_ro.setExpandedTitleColor(ContextCompat.getColor(this, R.color.white));
+
 
             // Check if the TextViews and receivedScientist_ro are not null before setting text
             if (Nume_firma != null && receivedScientist_ro.getNume_firma() != null) {
@@ -141,29 +125,7 @@ public class DetailActivityvw_ro extends AppCompatActivity{
 
         int id = item.getItemId();
 
-//        if (id==R.id.action_edit_vw){
-//            Utils.sendScientistvwToActivity(this,receivedScientist,help_vw.class);
-//            finish();
-//            return true;
-//        }
-//        else
-//
-//        if (id==R.id.action_edit_en_vw){
-//            Utils.sendScientistvwToActivity(this,receivedScientist,help_vw_en.class);
-//            finish();
-//            return true;
-//
-//        }
-//
-//        else
-//        if (id==R.id.action_edit_ru_vw){
-//            Utils.sendScientistvwToActivity(this,receivedScientist,help_vw_ru.class);
-//            finish();
-//            return true;
-//        }
-//
-//
-//        else
+
 
         if (id == android.R.id.home){
 
@@ -216,17 +178,7 @@ public class DetailActivityvw_ro extends AppCompatActivity{
 
         mBtnShare.setOnClickListener(view -> {
 
-//            // Ensure TextViews are not null before retrieving their text
-//            String s_Nume_firma = Nume_firma.getText().toString();
-//            String s_cui = cui.getText().toString();
-//            String s_cod_inmatriculare = cod_inmatriculare.getText().toString();
-//            String  s_EUID = EUID.getText().toString();
-//            String  s_stare = stare.getText().toString();
-//            String  s_Sediu = Sediu.getText().toString();
-//            String  s_country = country.getText().toString();
-//            String  s_Localitate = Localitate.getText().toString();
-//            String  s_Judet = Judet.getText().toString();
-//            String  s_act = act.getText().toString();
+
 
             // Ensure TextViews are not null before retrieving their text
             String s_Nume_firma = Nume_firma != null ? Nume_firma.getText().toString() : "";

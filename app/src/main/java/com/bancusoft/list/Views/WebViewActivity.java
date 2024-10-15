@@ -10,14 +10,12 @@ import com.bancusoft.list.R;
 
 public class WebViewActivity extends AppCompatActivity {
 
-    private WebView webView;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
 
-        webView = findViewById(R.id.webview);
+        WebView webView = findViewById(R.id.webview);
 
         // Enable JavaScript (if needed)
         webView.getSettings().setJavaScriptEnabled(true);
@@ -26,6 +24,7 @@ public class WebViewActivity extends AppCompatActivity {
         String url = getIntent().getStringExtra("url");
 
         // Load the URL in the WebView
+        assert url != null;
         webView.loadUrl(url);
 
         // Set a WebViewClient to handle page navigation within the WebView

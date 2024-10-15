@@ -12,6 +12,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bancusoft.list.R;
 
@@ -29,7 +30,7 @@ public class Full_description extends AppCompatActivity {
         // Inițializarea clickableSpan
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
-            public void onClick(View view) {
+            public void onClick(@NonNull View view) {
                 // Gestionează acțiunea de clic pe link
                 String url = "https://dataset.gov.md/dataset/11736-date-din-registrul-de-stat-al-unitatilor-de-drept-privind-intreprinderile-inregistrate-in-repu/resource/bf9b2be1-c341-4898-8d11-17270a0bc647";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -39,7 +40,7 @@ public class Full_description extends AppCompatActivity {
 
 
             @Override
-            public void updateDrawState(TextPaint ds) {
+            public void updateDrawState(@NonNull TextPaint ds) {
                 super.updateDrawState(ds);
                 ds.setColor(Color.RED); // Setează culoarea textului la roșu
                 ds.setUnderlineText(false); // Dezactivează sublinierea textului
@@ -50,7 +51,7 @@ public class Full_description extends AppCompatActivity {
         // Inițializarea clickableSpan
         ClickableSpan clickableSpan1 = new ClickableSpan() {
             @Override
-            public void onClick(View view) {
+            public void onClick(@NonNull View view) {
                 // Gestionează acțiunea de clic pe link
                 String url = "https://data.gov.ro/dataset/firme-inregistrate-la-registrul-comertului-pana-la-data-de-07-aprilie-2023/resource/27d6a6fd-f656-477c-bb5b-5f727562205a";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -60,7 +61,7 @@ public class Full_description extends AppCompatActivity {
 
 
             @Override
-            public void updateDrawState(TextPaint ds) {
+            public void updateDrawState(@NonNull TextPaint ds) {
                 super.updateDrawState(ds);
                 ds.setColor(Color.RED); // Setează culoarea textului la roșu
                 ds.setUnderlineText(false); // Dezactivează sublinierea textului

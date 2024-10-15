@@ -104,7 +104,7 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
         }
 
 
-        retrievedData.enqueue(new Callback<ResponseModel_Cl_medicament>() {
+        retrievedData.enqueue(new Callback<>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(@NonNull Call<ResponseModel_Cl_medicament> call, @NonNull Response<ResponseModel_Cl_medicament>
@@ -115,7 +115,7 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
                 Log.d("RETROFIT", "RESPONSE : " + response.body().getResultCl_medicament());
                 currentPageScientists = response.body().getResultCl_medicament();
 
-                if (currentPageScientists != null && currentPageScientists.size() > 0) {
+                if (currentPageScientists != null && !currentPageScientists.isEmpty()) {
                     if (action.equalsIgnoreCase("GET_PAGINATED_SEARCHCLMED")) {
                         allPagesScientists.clear();
                     }
@@ -267,12 +267,12 @@ public class CL_medicament_Activity extends AppCompatActivity  implements Search
     }
 
     @Override
-    public boolean onMenuItemActionExpand(MenuItem item) {
+    public boolean onMenuItemActionExpand(@NonNull MenuItem item) {
         return false;
     }
 
     @Override
-    public boolean onMenuItemActionCollapse(MenuItem item) {
+    public boolean onMenuItemActionCollapse(@NonNull MenuItem item) {
         return false;
     }
 

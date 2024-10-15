@@ -59,9 +59,9 @@ public class Cl_medicament implements Serializable{
 
 
     @SerializedName("notice")
-    private String notice;
+    private final String notice;
 
-    public Cl_medicament(String codul_med, String codul_vamal, String den_come, String forma_farmaceutica, String doza_concentratia, String volum, String divizarea, String tara, String producatorul, String nr_inregistrare, String data_inregistrarii, String codul_atc, String denumirea_int, String termen_valabilitate, String codul_cu_bare) {
+    public Cl_medicament(String codul_med, String codul_vamal, String den_come, String forma_farmaceutica, String doza_concentratia, String volum, String divizarea, String tara, String producatorul, String nr_inregistrare, String data_inregistrarii, String codul_atc, String denumirea_int, String termen_valabilitate, String codul_cu_bare, String notice) {
         this.codul_med = codul_med;
         this.codul_vamal = codul_vamal;
         this.den_come = den_come;
@@ -77,6 +77,7 @@ public class Cl_medicament implements Serializable{
         this.denumirea_int = denumirea_int;
         this.termen_valabilitate = termen_valabilitate;
         this.codul_cu_bare = codul_cu_bare;
+        this.notice = notice;
     }
 
     /**
@@ -209,9 +210,7 @@ public class Cl_medicament implements Serializable{
         return notice;
     }
 
-    public void setNotice(String notice) {
-        this.notice =  notice;
-    }
+
 
 
 

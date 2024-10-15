@@ -28,8 +28,12 @@ public class DetailActivityclcaem extends AppCompatActivity {
 
     //Let's define our instance fields
     private TextView CODUL_TV_CAEM ,DENUMIRE_TV_caem;
-    private Cl_caem receivedCl_caem;
+    private final Cl_caem receivedCl_caem;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
+
+    public DetailActivityclcaem(Cl_caem receivedClCaem) {
+        receivedCl_caem = receivedClCaem;
+    }
 
     /**
      * Let's initialize our widgets

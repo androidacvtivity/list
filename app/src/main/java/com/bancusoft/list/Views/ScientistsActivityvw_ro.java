@@ -95,7 +95,7 @@ public class ScientistsActivityvw_ro extends AppCompatActivity
         }
 
 
-        retrievedData.enqueue(new Callback<ResponseModelvw_ro>() {
+        retrievedData.enqueue(new Callback<>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(@NonNull Call<ResponseModelvw_ro> call, @NonNull Response<ResponseModelvw_ro>

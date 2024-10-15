@@ -13,6 +13,7 @@ import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -92,7 +93,7 @@ public class ScientistsActivityclcaem2 extends AppCompatActivity
         }
 
 
-        retrievedData.enqueue(new Callback<ResponseModelcaem2cl>() {
+        retrievedData.enqueue(new Callback<>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(@NonNull Call<ResponseModelcaem2cl> call, @NonNull Response<ResponseModelcaem2cl>
@@ -103,7 +104,7 @@ public class ScientistsActivityclcaem2 extends AppCompatActivity
                 Log.d("RETROFIT", "RESPONSE : " + response.body().getResultcaem2cl());
                 currentPageScientists = response.body().getResultcaem2cl();
 
-                if (currentPageScientists != null && currentPageScientists.size() > 0) {
+                if (currentPageScientists != null && !currentPageScientists.isEmpty()) {
                     if (action.equalsIgnoreCase("GET_PAGINATED_SEARCHCAEM2")) {
                         allPagesScientists.clear();
                     }
@@ -176,6 +177,7 @@ public class ScientistsActivityclcaem2 extends AppCompatActivity
         inflater.inflate(R.menu.scientists_page_menu_cl_caem2, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search_caem2);
         SearchView searchView = (SearchView) searchItem.getActionView();
+        assert searchView != null;
         searchView.setOnQueryTextListener(this);
         searchView.setIconified(true);
         searchView.setQueryHint("Căutare");
@@ -247,12 +249,12 @@ public class ScientistsActivityclcaem2 extends AppCompatActivity
     }
 
     @Override
-    public boolean onMenuItemActionExpand(MenuItem item) {
+    public boolean onMenuItemActionExpand(@NonNull MenuItem item) {
         return false;
     }
 
     @Override
-    public boolean onMenuItemActionCollapse(MenuItem item) {
+    public boolean onMenuItemActionCollapse(@NonNull MenuItem item) {
         return false;
     }
 
@@ -263,20 +265,31 @@ public class ScientistsActivityclcaem2 extends AppCompatActivity
 
 
 
-    @Override
-    public void onBackPressed() {
-        Intent intent;
-        intent = new Intent(this, DashboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
-        startActivity(intent);
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cl_caem2);
 
+        //-----------------------------
+
+        // Register the onBackPressed callback
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(ScientistsActivityclcaem2.this, DashboardActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+        };
+
+        // Add the callback to the dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
+
+//-----------------------------
         initializeViews();
         this.listenToRecyclerViewScroll();
         setupRecyclerView();

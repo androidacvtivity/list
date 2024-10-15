@@ -17,8 +17,7 @@ public interface RestApi {
      * This method will allow us perform a HTTP GET request to the specified url
      * .The response will be a ResponseModel object.
      */
-    @GET("index.php")
-    Call<ResponseModel> retrieve();
+
 
     @GET("index_view.php")
     Call<ResponseModelvw> retrievevw();
@@ -90,12 +89,6 @@ public interface RestApi {
                                @Field("limit") String limit);
 
 
-    @FormUrlEncoded
-    @POST("index.php")
-    Call<ResponseModel> search_dgti(@Field("action") String action,
-                               @Field("query") String query,
-                               @Field("start") String start,
-                               @Field("limit") String limit);
 
 
     /**
