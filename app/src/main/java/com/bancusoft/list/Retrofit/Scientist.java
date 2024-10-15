@@ -25,47 +25,15 @@ public class Scientist implements Serializable {
     private String description;
     @SerializedName("galaxy")
     private String galaxy;
-    @SerializedName("star")
-    private final String star;
-    @SerializedName("serviciu")
+     @SerializedName("serviciu")
      private String serviciu;
-    @SerializedName("sectia")
-     private String sectia;
-     @SerializedName("depart")
-     private String depart;
      @SerializedName("phone")
      private String phone;
-     @SerializedName("phoneinternal")
-     private final String phoneinternal;
      @SerializedName("email")
      private String email;
-     @SerializedName("personalinfo")
-     private final String personalinfo;
-
-     @SerializedName("formname")
-     private final String formname;
-
-     @SerializedName("phonemobil")
-     private final String phonemobil;
-
-     @SerializedName("floor")
-     private final String floor;
-
-     @SerializedName("office")
-     private final String office;
 
 
-     @SerializedName("notice")
-     private String notice;
-
-     public Scientist(String star, String phoneinternal, String personalinfo, String formname, String phonemobil, String floor, String office) {
-         this.star = star;
-         this.phoneinternal = phoneinternal;
-         this.personalinfo = personalinfo;
-         this.formname = formname;
-         this.phonemobil = phonemobil;
-         this.floor = floor;
-         this.office = office;
+     public Scientist() {
      }
 
 
@@ -80,23 +48,6 @@ public class Scientist implements Serializable {
         mId = id;
     }
 
-
-     public String getNotice() {
-         return notice;
-     }
-
-     public void setNotice(String notice) {
-         this.notice = notice;
-     }
-
-     public String getFloor() {
-         return floor;
-     }
-
-
-     public String getOffice() {
-         return office;
-     }
 
      public String getName() {
         return name;
@@ -115,37 +66,12 @@ public class Scientist implements Serializable {
     }
 
 
-
-     public String getDepart() {
-         return depart;
-     }
-
-     public void setDepart(String depart) {
-         this.depart = depart;
-     }
-
-
-     public String getFormname() {
-         return formname;
-     }
-
-
      public String getPhone() {
          return phone;
      }
 
      public void setPhone(String phone) {
          this.phone = phone;
-     }
-
-
-     public String getPhonemobil() {
-         return phonemobil;
-     }
-
-
-     public String getPersonalinfo() {
-         return personalinfo;
      }
 
 
@@ -158,12 +84,6 @@ public class Scientist implements Serializable {
      }
 
 
-
-     public String getPhoneinternal() {
-         return phoneinternal;
-     }
-
-
      public String getServiciu() {
          return serviciu;
      }
@@ -172,19 +92,6 @@ public class Scientist implements Serializable {
          this.serviciu = serviciu;
      }
 
-     public String getSectia() {
-         return sectia;
-     }
-
-     public void setSectia(String sectia) {
-         this.sectia = sectia;
-     }
-
-
-
-     public String getStar() {
-         return star;
-     }
 
      public String getGalaxy() {
         return galaxy;

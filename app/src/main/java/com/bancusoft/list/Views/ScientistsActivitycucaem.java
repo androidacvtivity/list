@@ -95,7 +95,7 @@ public class ScientistsActivitycucaem extends AppCompatActivity
         }
 
 
-        retrievedData.enqueue(new Callback<ResponseModelcaem>() {
+        retrievedData.enqueue(new Callback<>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(@NonNull Call<ResponseModelcaem> call, @NonNull Response<ResponseModelcaem>

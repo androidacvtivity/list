@@ -1,17 +1,11 @@
 package com.bancusoft.list.Retrofit;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.List;
 
 /**
  * Our json response will be mapped to this class.
  */
 public class ResponseModel {
-    /**
-     * Our ResponseModel attributes
-     */
-    @SerializedName("result")
-    List<Scientist> scientists;
 
     /**
      * Our ResponseModel attributes
@@ -25,19 +19,6 @@ public class ResponseModel {
 
     @SerializedName("message")
     private String message;
-
-
-    /**
-     * Generate Getter and Setters
-     */
-    public List<Scientist> getResult() {
-        return scientists;
-    }
-
-
-    public void setResult(List<Scientist> scientists) {
-        this.scientists = scientists;
-    }
 
 
     public String getCode() {

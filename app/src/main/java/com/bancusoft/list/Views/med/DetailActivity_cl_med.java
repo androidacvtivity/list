@@ -20,8 +20,7 @@ import com.bancusoft.list.Helpers.ViewUtils;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Retrofit.Cl_medicament;
 import com.bancusoft.list.Retrofit.Scientist;
-import com.bancusoft.list.Views.DetailActivityvw_ro;
-import com.bancusoft.list.Views.ScientistsActivityvw_ro;
+
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;

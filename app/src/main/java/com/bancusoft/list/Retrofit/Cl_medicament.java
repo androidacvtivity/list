@@ -209,9 +209,7 @@ public class Cl_medicament implements Serializable{
         return notice;
     }
 
-    public void setNotice(String notice) {
-        this.notice =  notice;
-    }
+
 
 
 
