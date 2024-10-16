@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.drawerlayout:drawerlayout:1.1.1@aar" external-system-id="GRADLE">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/004a91d40ef674e8a9041881d0892bf9/transformed/drawerlayout-1.1.1/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/8.9/transforms/3a304779ebb6f1c36b0abbfb463d2af7/transformed/drawerlayout-1.1.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/004a91d40ef674e8a9041881d0892bf9/transformed/drawerlayout-1.1.1/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/004a91d40ef674e8a9041881d0892bf9/transformed/drawerlayout-1.1.1/AndroidManifest.xml" />
-      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/transforms-4/004a91d40ef674e8a9041881d0892bf9/transformed/drawerlayout-1.1.1/res" />
+      <root url="jar://$PROJECT_DIR$/../Video-Player-App/caches/8.9/transforms/3a304779ebb6f1c36b0abbfb463d2af7/transformed/drawerlayout-1.1.1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/8.9/transforms/3a304779ebb6f1c36b0abbfb463d2af7/transformed/drawerlayout-1.1.1/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../Video-Player-App/caches/8.9/transforms/3a304779ebb6f1c36b0abbfb463d2af7/transformed/drawerlayout-1.1.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
