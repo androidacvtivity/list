@@ -117,10 +117,14 @@
         android:name="com.bancusoft.list.Views.DetailActivityclcaem2"
         android:label="Despre codul  CAEM2 "
         android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
+
+<!--        This class should provide a default constructor (a public constructor with no arguments) (`com.bancusoft.list.Views.DetailActivityclcaem`)-->
         <activity
             android:name="com.bancusoft.list.Views.DetailActivityclcaem"
             android:label="Despre codul CAEM "
             android:parentActivityName="com.bancusoft.list.Views.DashboardActivity" />
+
+
         <activity
             android:name="com.bancusoft.list.Views.DetailActivityvw"
             android:label="Despre AE "
