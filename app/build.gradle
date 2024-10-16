@@ -8,8 +8,8 @@ android {
         applicationId "com.bancusoft.list"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 20
-        versionName "release 20.0"
+        versionCode 21
+        versionName "release 21.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -33,8 +33,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-    //buildToolsVersion '35.0.0 rc3'
-//    buildToolsVersion '34.0.0'
+
 
 }
 
@@ -69,8 +68,6 @@ dependencies {
     //OPTIONAL: Custom fonts usage
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.1.1'
-//    //Material dialogs
-    //OPTIONAL: Circular imageview
     implementation 'cn.gavinliu:ShapedImageView:0.8.7'
 
 
