@@ -1,4 +1,6 @@
 package com.bancusoft.list.Views;
+import android.Manifest;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -9,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
+import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 import com.bancusoft.list.R;
 import com.bancusoft.list.Views.structbns.Full_description;
 
+import java.util.Calendar;
 import java.util.TimeZone;
 
 public class AboutUsActivity extends AppCompatActivity {
@@ -134,7 +138,7 @@ public class AboutUsActivity extends AppCompatActivity {
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("plain/text"); // Set the type to plain text
+        intent.setType("plain/text");
 
         // Set the recipient emails
         String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
@@ -145,8 +149,8 @@ public class AboutUsActivity extends AppCompatActivity {
         String deviceModel = Build.MODEL;
         String deviceManufacturer = Build.MANUFACTURER;
         String buildNumber = Build.DISPLAY;
-        String cpuArchitecture = Build.SUPPORTED_ABIS[0]; // First ABI is the preferred one
-        String timeZone = TimeZone.getDefault().getID(); // Get the current time zone
+        String cpuArchitecture = Build.SUPPORTED_ABIS[0];
+        String timeZone = TimeZone.getDefault().getID();
         String deviceBrand = Build.BRAND;
         String host = Build.HOST;
         String bootloader = Build.BOOTLOADER;
@@ -169,6 +173,13 @@ public class AboutUsActivity extends AppCompatActivity {
         long totalRam = memoryInfo.totalMem;
         long availableRam = memoryInfo.availMem;
 
+        // Get the current day, month, year, and hour
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH) + 1; // Months are zero-based
+        int year = calendar.get(Calendar.YEAR);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
         // Add subject and body to the email with additional device information
         String emailBody = "Device Information:\n"
                 + "Android Version: " + androidVersion + "\n"
@@ -184,7 +195,9 @@ public class AboutUsActivity extends AppCompatActivity {
                 + "Total Internal Storage: " + totalStorage / (1024 * 1024) + " MB\n"
                 + "Available Internal Storage: " + availableStorage / (1024 * 1024) + " MB\n"
                 + "Total RAM: " + totalRam / (1024 * 1024) + " MB\n"
-                + "Available RAM: " + availableRam / (1024 * 1024) + " MB";
+                + "Available RAM: " + availableRam / (1024 * 1024) + " MB\n"
+                + "Current Date: " + day + "/" + month + "/" + year + "\n"
+                + "Current Hour: " + hour + ":00";
 
         // Set the email subject and body
         String emailSubject = "About Stat Level - Device: " + deviceModel;
@@ -200,7 +213,7 @@ public class AboutUsActivity extends AppCompatActivity {
         } catch (Exception e) {
             // If Gmail is not available, fall back to a generic email chooser
             Intent fallbackIntent = new Intent(Intent.ACTION_SENDTO);
-            fallbackIntent.setData(Uri.parse("mailto:")); // Using ACTION_SENDTO requires a mailto URI
+            fallbackIntent.setData(Uri.parse("mailto:"));
             fallbackIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
             fallbackIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
             fallbackIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
@@ -213,7 +226,6 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
 
