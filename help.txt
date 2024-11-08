@@ -1,5 +1,104 @@
-1. first run of project.
+public void onEmailImageViewClick(View view) {
+    // Create an Intent to send an email
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    intent.setType("plain/text");
 
---------------------
+    // Set the recipient emails
+    String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
+    intent.putExtra(Intent.EXTRA_EMAIL, recipients);
 
-ERROR: C:\Users\VitalieBancu\AndroidStudioProjects\accountant\app\src\main\res\layout\activity_about_us_me.xml:68: AAPT: error: resource drawable/vitaliebancu1 (aka com.bancusoft.accountant:drawable/vitaliebancu1) not found.
+    // Retrieve the Android version, device model, manufacturer, etc.
+    String androidVersion = Build.VERSION.RELEASE;
+    String deviceModel = Build.MODEL;
+    String deviceManufacturer = Build.MANUFACTURER;
+    String buildNumber = Build.DISPLAY;
+    String cpuArchitecture = Build.SUPPORTED_ABIS[0];
+    String timeZone = TimeZone.getDefault().getID();
+    String deviceBrand = Build.BRAND;
+    String host = Build.HOST;
+    String bootloader = Build.BOOTLOADER;
+
+    // Retrieve screen resolution
+    DisplayMetrics displayMetrics = new DisplayMetrics();
+    view.getContext().getResources().getDisplayMetrics();
+    int screenWidth = displayMetrics.widthPixels;
+    int screenHeight = displayMetrics.heightPixels;
+
+    // Retrieve available and total internal storage
+    StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+    long totalStorage = statFs.getTotalBytes();
+    long availableStorage = statFs.getAvailableBytes();
+
+    // Retrieve available RAM
+    ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+    ActivityManager activityManager = (ActivityManager) view.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+    activityManager.getMemoryInfo(memoryInfo);
+    long totalRam = memoryInfo.totalMem;
+    long availableRam = memoryInfo.availMem;
+
+    // Get the current day, month, year, and hour
+    Calendar calendar = Calendar.getInstance();
+    int day = calendar.get(Calendar.DAY_OF_MONTH);
+    int month = calendar.get(Calendar.MONTH) + 1; // Months are zero-based
+    int year = calendar.get(Calendar.YEAR);
+    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+    // Retrieve app name and version
+    Context context = view.getContext();
+    String appName = context.getString(context.getApplicationInfo().labelRes);
+    String appVersion;
+    try {
+        appVersion = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+    } catch (PackageManager.NameNotFoundException e) {
+        appVersion = "Unknown";
+    }
+
+    // Add subject and body to the email with additional device information
+    String emailBody = "App Information:\n"
+            + "App Name: " + appName + "\n"
+            + "App Version: " + appVersion + "\n\n"
+            + "Device Information:\n"
+            + "Android Version: " + androidVersion + "\n"
+            + "Device Model: " + deviceModel + "\n"
+            + "Manufacturer: " + deviceManufacturer + "\n"
+            + "Build Number: " + buildNumber + "\n"
+            + "Brand: " + deviceBrand + "\n"
+            + "CPU Architecture: " + cpuArchitecture + "\n"
+            + "Time Zone: " + timeZone + "\n"
+            + "Host: " + host + "\n"
+            + "Bootloader: " + bootloader + "\n"
+            + "Screen Resolution: " + screenWidth + "x" + screenHeight + " pixels\n"
+            + "Total Internal Storage: " + totalStorage / (1024 * 1024) + " MB\n"
+            + "Available Internal Storage: " + availableStorage / (1024 * 1024) + " MB\n"
+            + "Total RAM: " + totalRam / (1024 * 1024) + " MB\n"
+            + "Available RAM: " + availableRam / (1024 * 1024) + " MB\n"
+            + "Current Date: " + day + "/" + month + "/" + year + "\n"
+            + "Current Hour: " + hour + ":00";
+
+    // Set the email subject and body
+    String emailSubject = "About Stat Level - Device: " + deviceModel;
+    intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+    intent.putExtra(Intent.EXTRA_TEXT, emailBody);
+
+    // Specify the Gmail package
+    intent.setPackage("com.google.android.gm");
+
+    try {
+        // Try to start the Gmail app
+        startActivity(intent);
+    } catch (Exception e) {
+        // If Gmail is not available, fall back to a generic email chooser
+        Intent fallbackIntent = new Intent(Intent.ACTION_SENDTO);
+        fallbackIntent.setData(Uri.parse("mailto:"));
+        fallbackIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
+        fallbackIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+        fallbackIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
+
+        try {
+            startActivity(Intent.createChooser(fallbackIntent, "Choose Email Client"));
+        } catch (Exception ex) {
+            // If no email app is available, show a toast
+            Toast.makeText(view.getContext(), "No email app available", Toast.LENGTH_SHORT).show();
+        }
+    }
+}

@@ -134,7 +134,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
 
 
-
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -180,8 +179,21 @@ public class AboutUsActivity extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
+        // Retrieve app name and version
+        Context context = view.getContext();
+        String appName = context.getString(context.getApplicationInfo().labelRes);
+        String appVersion;
+        try {
+            appVersion = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            appVersion = "Unknown";
+        }
+
         // Add subject and body to the email with additional device information
-        String emailBody = "Device Information:\n"
+        String emailBody = "App Information:\n"
+                + "App Name: " + appName + "\n"
+                + "App Version: " + appVersion + "\n\n"
+                + "Device Information:\n"
                 + "Android Version: " + androidVersion + "\n"
                 + "Device Model: " + deviceModel + "\n"
                 + "Manufacturer: " + deviceManufacturer + "\n"
@@ -226,6 +238,7 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         }
     }
+
 
 
 
