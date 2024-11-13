@@ -133,7 +133,7 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
 
-
+    // Add functionality to calculate days until Christmas
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -179,6 +179,12 @@ public class AboutUsActivity extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
+        // Calculate days left until Christmas
+        Calendar christmas = Calendar.getInstance();
+        christmas.set(year, Calendar.DECEMBER, 25);
+        long millisUntilChristmas = christmas.getTimeInMillis() - calendar.getTimeInMillis();
+        int daysUntilChristmas = (int) (millisUntilChristmas / (1000 * 60 * 60 * 24));
+
         // Retrieve app name and version
         Context context = view.getContext();
         String appName = context.getString(context.getApplicationInfo().labelRes);
@@ -209,7 +215,8 @@ public class AboutUsActivity extends AppCompatActivity {
                 + "Total RAM: " + totalRam / (1024 * 1024) + " MB\n"
                 + "Available RAM: " + availableRam / (1024 * 1024) + " MB\n"
                 + "Current Date: " + day + "/" + month + "/" + year + "\n"
-                + "Current Hour: " + hour + ":00";
+                + "Current Hour: " + hour + ":00\n\n"
+                + "Until Christmas - " + daysUntilChristmas + " days left";
 
         // Set the email subject and body
         String emailSubject = "About Stat Level - Device: " + deviceModel;
