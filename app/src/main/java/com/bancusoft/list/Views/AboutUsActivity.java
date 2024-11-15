@@ -14,6 +14,7 @@ import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -132,6 +133,7 @@ public class AboutUsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void onEmailImageViewClick(View view) {
         // Create an Intent to send an email
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -141,7 +143,29 @@ public class AboutUsActivity extends AppCompatActivity {
         String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);
 
-        // Retrieve the Android version, device model, manufacturer, etc.
+        Context context = view.getContext();
+
+        // Inflate the disclaimer layout to access its views
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View disclaimerView = inflater.inflate(R.layout.disclaimer_layout, null);
+
+        // Collect text from relevant TextViews in disclaimer_layout.xml
+        TextView titleTextView = disclaimerView.findViewById(R.id.titleTextView);
+        TextView section5Content = disclaimerView.findViewById(R.id.section5Content);
+        TextView footerTextView = disclaimerView.findViewById(R.id.footerTextView);
+        TextView footerTextView1 = disclaimerView.findViewById(R.id.footerTextView1);
+        TextView titleTextView1 = disclaimerView.findViewById(R.id.titleTextView1);
+        TextView section5Content1 = disclaimerView.findViewById(R.id.section5Content1);
+
+        StringBuilder disclaimerText = new StringBuilder();
+        disclaimerText.append(titleTextView.getText().toString()).append("\n\n");
+        disclaimerText.append(section5Content.getText().toString()).append("\n\n");
+        disclaimerText.append(footerTextView.getText().toString()).append("\n");
+        disclaimerText.append(footerTextView1.getText().toString()).append("\n\n");
+        disclaimerText.append(titleTextView1.getText().toString()).append("\n\n");
+        disclaimerText.append(section5Content1.getText().toString());
+
+        // Retrieve device information
         String androidVersion = Build.VERSION.RELEASE;
         String deviceModel = Build.MODEL;
         String deviceManufacturer = Build.MANUFACTURER;
@@ -190,7 +214,6 @@ public class AboutUsActivity extends AppCompatActivity {
         int daysUntilNewYear = (int) (millisUntilNewYear / (1000 * 60 * 60 * 24));
 
         // Retrieve app name and version
-        Context context = view.getContext();
         String appName = context.getString(context.getApplicationInfo().labelRes);
         String appVersion;
         try {
@@ -199,7 +222,10 @@ public class AboutUsActivity extends AppCompatActivity {
             appVersion = "Unknown";
         }
 
-        // Add subject and body to the email with additional device information
+        // Application link
+        String url = "https://www.google.com/maps/place/Chi%C8%99in%C4%83u,+Moldova/@46.9999566,28.7757764,12z/data=!3m1!4b1!4m6!3m5!1s0x40c97c3628b769a1:0x37d1d6305749dd3c!8m2!3d47.0104529!4d28.8638102!16zL20vMGZuNzc?authuser=0";
+
+        // Build the email body
         String emailBody = "App Information:\n"
                 + "App Name: " + appName + "\n"
                 + "App Version: " + appVersion + "\n\n"
@@ -221,10 +247,13 @@ public class AboutUsActivity extends AppCompatActivity {
                 + "Current Date: " + day + "/" + month + "/" + year + "\n"
                 + "Current Hour: " + hour + ":00\n\n"
                 + "Until Christmas - " + daysUntilChristmas + " days left\n"
-                + "Until New Year - " + daysUntilNewYear + " days left";
+                + "Until New Year - " + daysUntilNewYear + " days left\n\n"
+                + "Disclaimer:\n" + disclaimerText.toString() + "\n\n"
+                + "Application: " + appName + "\n"
+                + "Application Link: " + url;
 
         // Set the email subject and body
-        String emailSubject = "About Stat Level - Device: " + deviceModel;
+        String emailSubject = "About Stat Level - Device Information";
         intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
         intent.putExtra(Intent.EXTRA_TEXT, emailBody);
 
@@ -246,10 +275,12 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(fallbackIntent, "Choose Email Client"));
             } catch (Exception ex) {
                 // If no email app is available, show a toast
-                Toast.makeText(view.getContext(), "No email app available", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "No email app available", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
+
 
 
 
