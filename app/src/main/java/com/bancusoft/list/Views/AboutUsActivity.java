@@ -317,6 +317,22 @@ public class AboutUsActivity extends AppCompatActivity {
             Intent intent = new Intent(AboutUsActivity.this, Full_description.class);
             startActivity(intent);
         });
+
+
+        TextView sendSms = findViewById(R.id.send_sms);
+        sendSms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    // Intent to open SMS app with the specified number
+                    Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+                    smsIntent.setData(Uri.parse("smsto:+37368325707"));
+                    startActivity(smsIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(AboutUsActivity.this, "No SMS application found.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 

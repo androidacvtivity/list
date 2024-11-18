@@ -116,6 +116,8 @@ Aplicația nu are statut de aplicație oficială sau de relație oficială sau p
     <string name="angaja_ii_bns">Angajații BNS</string>
 
     <string name="Full_description">Full description (en-US):</string>
+
+    <string name="send_sms">Send SMS</string>
     <string name="a_e_n_r_m">A.E în R.M</string>
 
     <string name="firme_ro">A.E în R.M</string>
