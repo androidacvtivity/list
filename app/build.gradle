@@ -8,8 +8,8 @@ android {
         applicationId "com.bancusoft.list"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 26
-        versionName "release 26.0"
+        versionCode 27
+        versionName "release 27.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }

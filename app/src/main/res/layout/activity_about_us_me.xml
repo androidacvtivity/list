@@ -437,6 +437,28 @@
 
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/mRelativeLayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/mRelativeLayout8"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/shadow_bottom"
+                    >
+
+                    <TextView
+                        android:id="@+id/send_sms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_centerInParent="true"
+                        android:text="@string/send_sms"
+                        android:textColor="#FF0000"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
 
             </RelativeLayout>
         </ScrollView>

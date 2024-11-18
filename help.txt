@@ -1,118 +1,25 @@
-public void onEmailImageViewClick(View view) {
-    // Create an Intent to send an email
-    Intent intent = new Intent(Intent.ACTION_SEND);
-    intent.setType("plain/text");
 
-    // Set the recipient emails
-    String[] recipients = new String[]{"bancusoft@gmail.com", "vitalie.bancu@bancusoft.com"};
-    intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+          <RelativeLayout
+                    android:id="@+id/mRelativeLayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/mRelativeLayout8"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/shadow_bottom"
+                    >
 
-    // Retrieve the Android version, device model, manufacturer, etc.
-    String androidVersion = Build.VERSION.RELEASE;
-    String deviceModel = Build.MODEL;
-    String deviceManufacturer = Build.MANUFACTURER;
-    String buildNumber = Build.DISPLAY;
-    String cpuArchitecture = Build.SUPPORTED_ABIS[0];
-    String timeZone = TimeZone.getDefault().getID();
-    String deviceBrand = Build.BRAND;
-    String host = Build.HOST;
-    String bootloader = Build.BOOTLOADER;
+                    <TextView
+                        android:id="@+id/send_sms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
 
-    // Retrieve screen resolution
-    DisplayMetrics displayMetrics = new DisplayMetrics();
-    view.getContext().getResources().getDisplayMetrics();
-    int screenWidth = displayMetrics.widthPixels;
-    int screenHeight = displayMetrics.heightPixels;
+                        android:layout_centerInParent="true"
+                        android:text="@string/send_sms"
+                        android:textColor="#FF0000"
+                        android:textStyle="bold" />
 
-    // Retrieve available and total internal storage
-    StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-    long totalStorage = statFs.getTotalBytes();
-    long availableStorage = statFs.getAvailableBytes();
 
-    // Retrieve available RAM
-    ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-    ActivityManager activityManager = (ActivityManager) view.getContext().getSystemService(Context.ACTIVITY_SERVICE);
-    activityManager.getMemoryInfo(memoryInfo);
-    long totalRam = memoryInfo.totalMem;
-    long availableRam = memoryInfo.availMem;
+                </RelativeLayout>
 
-    // Get the current day, month, year, and hour
-    Calendar calendar = Calendar.getInstance();
-    int day = calendar.get(Calendar.DAY_OF_MONTH);
-    int month = calendar.get(Calendar.MONTH) + 1; // Months are zero-based
-    int year = calendar.get(Calendar.YEAR);
-    int hour = calendar.get(Calendar.HOUR_OF_DAY);
-
-    // Calculate days left until Christmas
-    Calendar christmas = Calendar.getInstance();
-    christmas.set(year, Calendar.DECEMBER, 25);
-    long millisUntilChristmas = christmas.getTimeInMillis() - calendar.getTimeInMillis();
-    int daysUntilChristmas = (int) (millisUntilChristmas / (1000 * 60 * 60 * 24));
-
-    // Calculate days left until New Year
-    Calendar newYear = Calendar.getInstance();
-    newYear.set(year + 1, Calendar.JANUARY, 1);  // Set to January 1st of next year
-    long millisUntilNewYear = newYear.getTimeInMillis() - calendar.getTimeInMillis();
-    int daysUntilNewYear = (int) (millisUntilNewYear / (1000 * 60 * 60 * 24));
-
-    // Retrieve app name and version
-    Context context = view.getContext();
-    String appName = context.getString(context.getApplicationInfo().labelRes);
-    String appVersion;
-    try {
-        appVersion = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-    } catch (PackageManager.NameNotFoundException e) {
-        appVersion = "Unknown";
-    }
-
-    // Add subject and body to the email with additional device information
-    String emailBody = "App Information:\n"
-            + "App Name: " + appName + "\n"
-            + "App Version: " + appVersion + "\n\n"
-            + "Device Information:\n"
-            + "Android Version: " + androidVersion + "\n"
-            + "Device Model: " + deviceModel + "\n"
-            + "Manufacturer: " + deviceManufacturer + "\n"
-            + "Build Number: " + buildNumber + "\n"
-            + "Brand: " + deviceBrand + "\n"
-            + "CPU Architecture: " + cpuArchitecture + "\n"
-            + "Time Zone: " + timeZone + "\n"
-            + "Host: " + host + "\n"
-            + "Bootloader: " + bootloader + "\n"
-            + "Screen Resolution: " + screenWidth + "x" + screenHeight + " pixels\n"
-            + "Total Internal Storage: " + totalStorage / (1024 * 1024) + " MB\n"
-            + "Available Internal Storage: " + availableStorage / (1024 * 1024) + " MB\n"
-            + "Total RAM: " + totalRam / (1024 * 1024) + " MB\n"
-            + "Available RAM: " + availableRam / (1024 * 1024) + " MB\n"
-            + "Current Date: " + day + "/" + month + "/" + year + "\n"
-            + "Current Hour: " + hour + ":00\n\n"
-            + "Until Christmas - " + daysUntilChristmas + " days left\n"
-            + "Until New Year - " + daysUntilNewYear + " days left";
-
-    // Set the email subject and body
-    String emailSubject = "About Stat Level - Device: " + deviceModel;
-    intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
-    intent.putExtra(Intent.EXTRA_TEXT, emailBody);
-
-    // Specify the Gmail package
-    intent.setPackage("com.google.android.gm");
-
-    try {
-        // Try to start the Gmail app
-        startActivity(intent);
-    } catch (Exception e) {
-        // If Gmail is not available, fall back to a generic email chooser
-        Intent fallbackIntent = new Intent(Intent.ACTION_SENDTO);
-        fallbackIntent.setData(Uri.parse("mailto:"));
-        fallbackIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
-        fallbackIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
-        fallbackIntent.putExtra(Intent.EXTRA_TEXT, emailBody);
-
-        try {
-            startActivity(Intent.createChooser(fallbackIntent, "Choose Email Client"));
-        } catch (Exception ex) {
-            // If no email app is available, show a toast
-            Toast.makeText(view.getContext(), "No email app available", Toast.LENGTH_SHORT).show();
-        }
-    }
-}
+I want when I click on this - the window for sending the message to the number +37368325707 opens - the user writes the text of the message.
+I add the function in AboutUsActivity
