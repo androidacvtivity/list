@@ -287,6 +287,8 @@ public class AboutUsActivity extends AppCompatActivity {
 
 
     //--------------------------------------------------------------------------
+    //To change the code - Send SMS to this number as well - to two numbers at once
+    //40 754 869 678
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -319,20 +321,73 @@ public class AboutUsActivity extends AppCompatActivity {
         });
 
 
+
+
+//        TextView sendSms = findViewById(R.id.send_sms);
+//        sendSms.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//                    // Retrieve app name and version
+//                    String appName = getString(getApplicationInfo().labelRes);
+//                    String appVersion;
+//                    try {
+//                        appVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+//                    } catch (PackageManager.NameNotFoundException e) {
+//                        appVersion = "Unknown";
+//                    }
+//
+//                    // Construct the SMS body with app information outside the disclaimer
+//                    String smsBody = "App Information:\n"
+//                            + "App Name: " + appName + "\n"
+//                            + "Version: " + appVersion + "\n\n"
+//                            + "Disclaimer:\n" // Disclaimer starts here
+//                            + "Your additional disclaimer text goes here.";
+//
+//                    // Intent to open SMS app with the specified number and body
+//                    Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+//                    smsIntent.setData(Uri.parse("smsto:+37368325707")); // Replace with dynamic number if needed
+//                    smsIntent.putExtra("sms_body", smsBody);
+//                    startActivity(smsIntent);
+//                } catch (ActivityNotFoundException e) {
+//                    Toast.makeText(AboutUsActivity.this, "No SMS application found.", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+
         TextView sendSms = findViewById(R.id.send_sms);
         sendSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    // Intent to open SMS app with the specified number
+                    // Retrieve app name and version
+                    String appName = getString(getApplicationInfo().labelRes);
+                    String appVersion;
+                    try {
+                        appVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        appVersion = "Unknown";
+                    }
+
+                    // Construct the SMS body with app information outside the disclaimer
+                    String smsBody = "App Information:\n"
+                            + "App Name: " + appName + "\n"
+                            + "Version: " + appVersion + "\n\n"
+                            + "Disclaimer:\n" // Disclaimer starts here
+                            + "Your additional disclaimer text goes here.";
+
+                    // Intent to open SMS app with multiple recipients
                     Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
-                    smsIntent.setData(Uri.parse("smsto:+37368325707"));
+                    smsIntent.setData(Uri.parse("smsto:+37368325707,40754869678")); // Include both numbers separated by a comma
+                    smsIntent.putExtra("sms_body", smsBody);
                     startActivity(smsIntent);
                 } catch (ActivityNotFoundException e) {
                     Toast.makeText(AboutUsActivity.this, "No SMS application found.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
 
