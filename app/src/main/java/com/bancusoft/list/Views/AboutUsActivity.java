@@ -379,7 +379,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
                     // Intent to open SMS app with multiple recipients
                     Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
-                    smsIntent.setData(Uri.parse("smsto:+37368325707,40754869678")); // Include both numbers separated by a comma
+                    smsIntent.setData(Uri.parse("smsto:+40754869678,+37368325707,")); // Include both numbers separated by a comma
                     smsIntent.putExtra("sms_body", smsBody);
                     startActivity(smsIntent);
                 } catch (ActivityNotFoundException e) {
