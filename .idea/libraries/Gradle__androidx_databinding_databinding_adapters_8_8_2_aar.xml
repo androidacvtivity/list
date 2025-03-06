@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.databinding:databinding-adapters:8.8.2@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AndroidStudioProjects/Video-Player-App/caches/8.10.2/transforms/01158fffddadc1abe8c0855f31448665/transformed/databinding-adapters-8.8.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/AndroidStudioProjects/Video-Player-App/caches/8.10.2/transforms/01158fffddadc1abe8c0855f31448665/transformed/databinding-adapters-8.8.2/res" />
+      <root url="file://$USER_HOME$/AndroidStudioProjects/Video-Player-App/caches/8.10.2/transforms/01158fffddadc1abe8c0855f31448665/transformed/databinding-adapters-8.8.2/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AndroidStudioProjects/Video-Player-App/caches/modules-2/files-2.1/androidx.databinding/databinding-adapters/8.8.2/b29c5521cde987273ee35ffa50af0c397acf5268/databinding-adapters-8.8.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
