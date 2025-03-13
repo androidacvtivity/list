@@ -48,7 +48,7 @@
     <RelativeLayout
         android:id="@+id/mRelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="270dp"
         android:layout_below="@+id/mRelativeLayout1"
         android:background="@color/colorPrimary">
 
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/nameTV"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="4dp"
             android:text="@string/software_engineer_n_programmer"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -222,6 +222,7 @@
 <!--                        android:text="@string/_37368325707"/>-->
 <!--                </RelativeLayout>-->
 
+
                 <RelativeLayout
                     android:id="@+id/sds"
                     android:layout_width="match_parent"
@@ -237,28 +238,27 @@
                         android:textColor="@android:color/black"
                         android:textStyle="bold" />
 
-                      <!--Change me text color in red -->
+                    <!--Change me text color in red -->
 
                     <TextView
                         android:id="@+id/contactNoText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
                         android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/contactNoLabel"
                         android:onClick="onCallImageViewClick"
                         android:text="@string/_37368325707"
                         android:textColor="#FF0000" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@+id/contactNoText"
-                        android:text="-- md" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_toEndOf="@+id/contactNoText"-->
+<!--                        android:text="&#45;&#45; md" />-->
                 </RelativeLayout>
-
 
                 <RelativeLayout
                     android:id="@+id/phone_ro"
@@ -288,13 +288,13 @@
                         android:text="@string/bancusoft_ro"
                         android:textColor="#FF0000" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toEndOf="@+id/contactNoText_ro"
-                        android:text="-- ro" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:layout_toEndOf="@+id/contactNoText_ro"-->
+<!--                        android:text="&#45;&#45; ro" />-->
                 </RelativeLayout>
 
 
