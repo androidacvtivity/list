@@ -328,7 +328,7 @@
                 <RelativeLayout
                     android:id="@+id/mRelativeLayout5"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_below="@+id/mRelativeLayout4"
                     android:background="@drawable/shadow_bottom">
 
@@ -337,7 +337,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:autoLink="email"
+
                         android:text="@string/address"
                         android:textColor="@android:color/black"
                         android:textStyle="bold" />
@@ -349,7 +349,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/address"
                         android:text="@string/md_2019_chi_in_u_str_grenoble_106"
-                        android:onClick="openMapsLink"
+
                         />
                 </RelativeLayout>
 
