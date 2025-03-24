@@ -3,6 +3,7 @@ package com.bancusoft.list.Views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -13,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bancusoft.list.Helpers.Utils;
 import com.bancusoft.list.R;
+import com.bancusoft.list.Views.structbns.Full_description;
+
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
@@ -52,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(9000);
                     Utils.openActivity(SplashActivity.this, DashboardActivity.class);
                     finish();
                     super.run();
@@ -79,6 +82,14 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+
+        // Find the TextView that should open the disclaimer content
+        TextView disclaimerTextView = findViewById(R.id.mdisclaimer);
+        disclaimerTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(SplashActivity.this, Full_description.class);
+            startActivity(intent);
+        });
 
         this.initializeWidgets();
         this.showSplashAnimation();

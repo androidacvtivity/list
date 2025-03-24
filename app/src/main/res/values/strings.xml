@@ -44,14 +44,26 @@
 
     <string name="section4_content">
 
-       The application has no governmental affiliation or governmental authorization to facilitate government services. The "Stat Level" application was developed by an independent individual and is not associated with any governmental entity or legal person. The "Stat Level" application reads data from Excel files with public data that are published on government portals.
-The data about companies available through the "Stat Level" application are entirely taken from the government portal date.gov.md and date.gov.ro
-The provided information:
-a) Is of a general nature and is not intended to address the specific circumstances of any person or entity;
-b) Is not necessarily exhaustive, accurate, or up-to-date;
-c) Does not constitute professional or legal advice (if you need advice in a specific field, always consult a qualified individual).
-The application does not have the status of an official application or an official or privileged relationship with a public entity. In some cases, the data may contain errors that were not previously detected. Therefore, "Stat Level" does not assume responsibility for the quality, accuracy, and correctness of the data it provides, and the user who uses this data assumes this risk.
-Under no circumstances shall we be liable for any of the following losses or damages: (A) loss of data; (B) loss of anticipated revenues or profits; (C) loss of business; (D) loss of opportunities; (E) loss or damage to reputation; (F) losses suffered by third parties; or (G) any indirect, consequential damages resulting from the use of the "Stat Level" application.
+       Disclaimer
+The "Stat Level" application is developed independently and is not affiliated, sponsored, or approved by any government agency. Its purpose is to facilitate user access to publicly available data.
+Data Sources
+The company data available in the application is entirely sourced from official government portals:
+•	date.gov.md
+•	date.gov.ro
+Limitations and Responsibilities
+The information provided through the application:
+•	Is of a general nature and does not address the specific circumstances of any individual or entity;
+•	May not be exhaustive, accurate, or up-to-date;
+•	Does not constitute professional or legal advice. For specific advice, please consult a qualified professional.
+The application does not hold official status and does not have a privileged relationship with any public entity. While we strive to ensure data accuracy, there may be undetected errors. Therefore, "Stat Level" does not assume responsibility for the quality, accuracy, or correctness of the provided data, and users assume the risk of using this information.
+Under no circumstances shall we be liable for any losses or damages, including but not limited to:
+•	Loss of data;
+•	Loss of anticipated revenues or profits;
+•	Loss of business;
+•	Loss of opportunities;
+•	Damage to reputation;
+•	Losses suffered by third parties;
+•	Any indirect or consequential damages resulting from the use of the "Stat Level" application.
 
 </string>
 <!--Eu adaug aceasta in layout xml  in Android modifica  trebuie sa fie date.gov.md link cu adresa https://dataset.gov.md/dataset/11736-date-din-registrul-de-stat-al-unitatilor-de-drept-privind-intreprinderile-inregistrate-in-repu/resource/bf9b2be1-c341-4898-8d11-17270a0bc647) și date.gov.ro (https://data.gov.ro/dataset/firme-inregistrate-la-registrul-comertului-pana-la-data-de-07-aprilie-2023/resource/27d6a6fd-f656-477c-bb5b-5f727562205a-->
@@ -68,14 +80,26 @@ Under no circumstances shall we be liable for any of the following losses or dam
 <!--</string>-->
 
     <string name="section5_content">
-Aplicația nu are afiliere guvernamentală sau autorizare guvernamentală pentru a facilita servicii guvernamentale. Aplicația "Stat Level" a fost dezvoltată de către o persoană fizică independentă și nu este asociată cu nicio entitate guvernamentală sau persoană juridică. Aplicația "Stat Level" citește datele din fișierele Excel cu date publice care sunt publicate pe portalurile guvernamentale.
-Datele despre companii disponibile prin aplicația "Stat Level" sunt preluate integral de pe portalul guvernamental date.gov.md și date.gov.ro.
-Informațiile furnizate:
-a) Au doar un caracter general și nu sunt destinate să abordeze circumstanțele specifice ale unei persoane sau entități;
-b) Nu sunt neapărat exhaustive, precise sau actualizate;
-c) Nu constituie consultanță profesională sau juridică (dacă aveți nevoie de consultanță într-un domeniu specific, consultați întotdeauna o persoană calificată corespunzătoare).
-Aplicația nu are statut de aplicație oficială sau de relație oficială sau privilegiată cu o entitate publică. În unele cazuri, datele pot conține erori care nu au fost detectate anterior. Prin urmare, "Stat Level" nu își asumă responsabilitatea pentru calitatea, acuratețea și corectitudinea datelor pe care le pune la dispoziție, utilizatorul care utilizează aceste date asumându-și acest risc.
-În niciun caz nu ne vom angaja răspunderea pentru pierderile sau daunele următoare: (A) pierderea datelor; (B) pierderea veniturilor sau profiturilor anticipate; (C) pierderea afacerii; (D) pierderea oportunităților; (E) pierderea sau daunele aduse reputației; (F) pierderile suferite de terți; sau (G) orice daune indirecte, consecințele rezultate din utilizarea aplicației "Stat Level".
+        Declinarea responsabilității
+Aplicația "Stat Level" este dezvoltată independent și nu este afiliată, sponsorizată sau aprobată de nicio agenție guvernamentală. Scopul acesteia este de a facilita accesul utilizatorilor la date publice disponibile.
+Sursele datelor
+Datele despre companii disponibile în aplicație sunt preluate integral de pe portalurile guvernamentale oficiale:
+•	date.gov.md
+•	date.gov.ro
+Limitări și responsabilități
+Informațiile furnizate prin intermediul aplicației:
+•	Au un caracter general și nu abordează circumstanțele specifice ale unei persoane sau entități;
+•	Pot să nu fie exhaustive, precise sau actualizate;
+•	Nu constituie consultanță profesională sau juridică. Pentru sfaturi specifice, vă rugăm să consultați un specialist calificat.
+Aplicația nu deține statut oficial și nu are o relație privilegiată cu nicio entitate publică. Deși depunem eforturi pentru a asigura acuratețea datelor, acestea pot conține erori nedetectate anterior. Prin urmare, "Stat Level" nu își asumă responsabilitatea pentru calitatea, acuratețea sau corectitudinea datelor furnizate, utilizatorul asumându-și riscul utilizării acestora.
+În niciun caz nu vom fi responsabili pentru pierderi sau daune, inclusiv, dar fără a se limita la:
+•	Pierderea datelor;
+•	Pierderea veniturilor sau profiturilor anticipate;
+•	Pierderea afacerii;
+•	Pierderea oportunităților;
+•	Afectarea reputației;
+•	Pierderi suferite de terți;
+•	Orice daune indirecte sau consecințe rezultate din utilizarea aplicației "Stat Level".
 </string>
 
 
@@ -837,11 +861,13 @@ Aplicația nu are statut de aplicație oficială sau de relație oficială sau p
     <string name="the_possibility_to_search_for_ae_after_the_registration_date_has_been_added">The possibility to search for AE after the registration date has been added.</string>
     <string name="we_enter_2020_09_and_you">We enter 2020 09 and you will also find AE that were registered in 2020 09. If we enter 2020 09 04 we will find exactly all the AEs that were registered on this date.</string>
 
-    <string name="IDNO_08_08_22">CAUTĂ INFORMAȚII DESPRE TOATE COMPANIILE DIN REPUBLICA MOLDOVA ȘI ROMANIA</string>
+    <string name="IDNO_08_08_22">Search for information about all companies in the Republic of Moldova and Romania.</string>
     <string name="phone_number">+37368325707</string>
     <string name="phone_number_ro">+40754869678</string>
 
-    <string name="clasificatoare">CLASIFICĂRI ŞI NOMENCLATOARE</string>
+    <string name="m_disclaimer">The  - Stat Level -  app is not affiliated, endorsed, or authorized by any government entity.</string>
+
+    <string name="clasificatoare">Classifications and Nomenclatures</string>
     <string name="_37368325707">+37368325707</string>
     <string name="bancusoft_ro">+40754869678</string>
 
