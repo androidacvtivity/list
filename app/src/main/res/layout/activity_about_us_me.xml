@@ -381,39 +381,39 @@
                         android:text="@string/vitalie_bancu_bancusoft_com" />
                 </RelativeLayout>
 
+
                 <RelativeLayout
-                    android:onClick="onMImageViewClick"
                     android:id="@+id/mRelativeLayout7"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_below="@+id/mRelativeLayout6"
-                    android:background="@drawable/shadow_bottom">
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/shadow_bottom"
+                    android:onClick="onMImageViewClick">
 
                     <TextView
                         android:id="@+id/linkedin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
 
                         android:text="@string/linkedin"
 
-                        android:textStyle="bold"
                         android:textColor="#FF0000"
-                        />
+                        android:textStyle="bold" />
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_centerInParent="true"-->
-<!--                        android:layout_marginStart="24dp"-->
-<!--                        android:layout_toEndOf="@+id/linkedin"-->
-<!--                        android:text="@string/http_linkedin"-->
-<!--                        android:textColor="#FF0000" />-->
+                    <!--                    <TextView-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_centerInParent="true"-->
+                    <!--                        android:layout_marginStart="24dp"-->
+                    <!--                        android:layout_toEndOf="@+id/linkedin"-->
+                    <!--                        android:text="@string/http_linkedin"-->
+                    <!--                        android:textColor="#FF0000" />-->
 
 
                 </RelativeLayout>
-
 
                 <RelativeLayout
                     android:id="@+id/mRelativeLayout8"
